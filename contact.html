@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Bhupesh Indurkar</title>
+    <meta name="description" content="Get in touch with Bhupesh Indurkar for collaboration, projects, or any inquiries">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/glassmorphism.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="gradient-text">Bhupesh</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <div class="contact-hero-content">
+                <h1 class="gradient-text animate-fade-up">Get In Touch</h1>
+                <p class="contact-subtitle animate-fade-up delay-1">
+                    <span class="trip-rider-typing" data-words="Let's collaborate and bring your ideas to life,Ready to start your next project?,Available for exciting opportunities,Let's build something amazing together" data-speed="3000"></span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-section animate-fade-up">
+                    <div class="form-container glass-panel">
+                        <h2 class="form-title gradient-text">Send Me a Message</h2>
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" id="name" name="name" class="glass-input" required>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="glass-input" required>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" id="subject" name="subject" class="glass-input" required>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" name="message" rows="6" class="glass-input" required></textarea>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            
+                            <button type="submit" class="btn-glass primary submit-btn ripple">
+                                <span class="btn-text">Send Message</span>
+                                <i class="fas fa-paper-plane btn-icon"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-section animate-fade-up delay-1">
+                    <div class="contact-info glass-panel">
+                        <h2 class="info-title gradient-text">Contact Information</h2>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3 class="contact-label">Email</h3>
+                                <p class="contact-value">
+                                    <a href="mailto:bhupeshindurkar6@gmail.com" class="contact-link">
+                                        bhupeshindurkar6@gmail.com
+                                    </a>
+                                    <button class="copy-btn" onclick="copyToClipboard('bhupeshindurkar6@gmail.com')" title="Copy email">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3 class="contact-label">Location</h3>
+                                <p class="contact-value">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Nagpur, Maharashtra, India
+                                </p>
+                                <p class="contact-value secondary">Available for Remote Work</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3 class="contact-label">Response Time</h3>
+                                <p class="contact-value">Usually within 24 hours</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3 class="contact-label">Availability</h3>
+                                <p class="contact-value">Open for new opportunities</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="social-media glass-panel">
+                        <h3 class="social-title gradient-text">Connect With Me</h3>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/bhupesh-indurkar-64865b321/" target="_blank" class="social-link-large linkedin">
+                                <div class="social-icon">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                <div class="social-info">
+                                    <h4 class="social-name">LinkedIn</h4>
+                                    <p class="social-desc">Professional Network</p>
+                                </div>
+                            </a>
+
+                            <a href="https://github.com/bhupeshindurkar" target="_blank" class="social-link-large github">
+                                <div class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="social-info">
+                                    <h4 class="social-name">GitHub</h4>
+                                    <p class="social-desc">Code Repository</p>
+                                </div>
+                            </a>
+
+                            <a href="https://www.youtube.com/@bhupeshindurkar159" target="_blank" class="social-link-large youtube">
+                                <div class="social-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                <div class="social-info">
+                                    <h4 class="social-name">YouTube</h4>
+                                    <p class="social-desc">Educational Content</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title gradient-text">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item glass-card animate-fade-up">
+                    <div class="faq-question">
+                        <h3 class="faq-title">What services do you offer?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I specialize in Java web development, including Spring Boot applications, REST APIs, 
+                        database design, and full-stack web solutions. I also offer consultation on software 
+                        architecture and best practices.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card animate-fade-up delay-1">
+                    <div class="faq-question">
+                        <h3 class="faq-title">How long does a typical project take?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Project timelines vary based on complexity and requirements. A simple web application 
+                        might take 2-4 weeks, while more complex systems can take 2-3 months. I provide detailed 
+                        timelines after understanding your specific needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card animate-fade-up delay-2">
+                    <div class="faq-question">
+                        <h3 class="faq-title">Do you work with teams or solo?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I'm comfortable working both independently and as part of a team. I have experience 
+                        collaborating with designers, other developers, and project managers using agile 
+                        methodologies and modern collaboration tools.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card animate-fade-up delay-3">
+                    <div class="faq-question">
+                        <h3 class="faq-title">What's your preferred communication method?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>I prefer email for initial contact and detailed discussions. For ongoing projects, 
+                        I'm flexible with communication channels including Slack, Discord, or video calls 
+                        depending on your team's preferences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="contact-cta">
+        <div class="container">
+            <div class="cta-content glass-panel animate-fade-up">
+                <h2 class="cta-title gradient-text">Ready to Start Your Project?</h2>
+                <p class="cta-description">
+                    Whether you have a clear vision or just an idea, I'm here to help bring it to life. 
+                    Let's discuss your project and explore the possibilities together.
+                </p>
+                <div class="cta-buttons">
+                    <a href="mailto:bhupeshindurkar6@gmail.com" class="btn-glass primary">
+                        <i class="fas fa-envelope"></i> Send Email
+                    </a>
+                    <a href="projects.html" class="btn-glass secondary">View My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Bhupesh Indurkar. All rights reserved.</p>
+                    <p class="created-by">Created by BHUPESH</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/bhupesh-indurkar-64865b321/" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/bhupeshindurkar" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@bhupeshindurkar159" target="_blank" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

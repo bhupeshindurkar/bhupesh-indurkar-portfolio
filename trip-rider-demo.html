@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Rider Effects Demo - Bhupesh Indurkar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/glassmorphism.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .demo-section {
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .demo-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        .demo-example {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .demo-text {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .demo-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="gradient-text">Trip Rider Demo</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">← Back to Portfolio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Demo Content -->
+    <section style="padding-top: 8rem;">
+        <div class="container">
+            <h1 class="gradient-text" style="text-align: center; margin-bottom: 3rem;">
+                Trip Rider Effects Showcase
+            </h1>
+
+            <!-- Typewriter Effect -->
+            <div class="demo-section">
+                <h2 class="demo-title">1. Typewriter Effect</h2>
+                <div class="demo-example">
+                    <div class="demo-text typewriter-effect" data-speed="100" data-delay="500">
+                        This text appears with a classic typewriter effect...
+                    </div>
+                    <div class="demo-description">
+                        Classic typing animation with blinking cursor. Perfect for introductions and key messages.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trip Rider Typing -->
+            <div class="demo-section">
+                <h2 class="demo-title">2. Trip Rider Typing (Text Rotation)</h2>
+                <div class="demo-example">
+                    <div class="demo-text">
+                        I am a <span class="trip-rider-typing" data-words="Java Developer,Web Designer,Problem Solver,Creative Thinker,Tech Enthusiast" data-speed="2000"></span>
+                    </div>
+                    <div class="demo-description">
+                        Rotating text with typing animation. Great for showcasing multiple skills or roles.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wave Text -->
+            <div class="demo-section">
+                <h2 class="demo-title">3. Wave Text Effect</h2>
+                <div class="demo-example">
+                    <div class="demo-text wave-text">
+                        WAVE ANIMATION
+                    </div>
+                    <div class="demo-description">
+                        Letters animate in a wave pattern. Hover to see color change effect.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Neon Text -->
+            <div class="demo-section">
+                <h2 class="demo-title">4. Neon Glow Effect</h2>
+                <div class="demo-example">
+                    <div class="demo-text neon-text">
+                        NEON GLOW TEXT
+                    </div>
+                    <div class="demo-description">
+                        Glowing neon sign effect with flickering animation.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hologram Text -->
+            <div class="demo-section">
+                <h2 class="demo-title">5. Hologram Effect</h2>
+                <div class="demo-example">
+                    <div class="demo-text hologram-text">
+                        HOLOGRAM TEXT
+                    </div>
+                    <div class="demo-description">
+                        Futuristic hologram effect with scanning animation.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scramble Text -->
+            <div class="demo-section">
+                <h2 class="demo-title">6. Scramble Text Effect</h2>
+                <div class="demo-example">
+                    <div class="demo-text scramble-text" data-trip-effect="scramble">
+                        SCRAMBLE EFFECT
+                    </div>
+                    <div class="demo-description">
+                        Text scrambles and reveals itself. Hover to trigger the effect manually.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Glitch Text -->
+            <div class="demo-section">
+                <h2 class="demo-title">7. Glitch Effect</h2>
+                <div class="demo-example">
+                    <div class="demo-text" data-trip-effect="glitch">
+                        GLITCH TEXT
+                    </div>
+                    <div class="demo-description">
+                        Random glitch effect with RGB color separation.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cyberpunk Text -->
+            <div class="demo-section">
+                <h2 class="demo-title">8. Cyberpunk Effect</h2>
+                <div class="demo-example">
+                    <div class="demo-text cyberpunk-text">
+                        CYBERPUNK STYLE
+                    </div>
+                    <div class="demo-description">
+                        Cyberpunk-style text with sweeping light effect.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matrix Rain Background -->
+            <div class="demo-section">
+                <h2 class="demo-title">9. Matrix Rain Background</h2>
+                <div class="demo-example matrix-container" data-trip-effect="matrix" style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                    <div class="demo-text" style="z-index: 1; position: relative;">
+                        TEXT WITH MATRIX BACKGROUND
+                    </div>
+                    <div class="demo-description" style="position: absolute; bottom: 10px; left: 20px; z-index: 1;">
+                        Animated matrix rain effect in the background.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combined Effects -->
+            <div class="demo-section">
+                <h2 class="demo-title">10. Combined Effects</h2>
+                <div class="demo-example">
+                    <div class="demo-text">
+                        <span class="wave-text neon-text">COMBINED</span> 
+                        <span class="trip-rider-typing" data-words="EFFECTS,ANIMATIONS,STYLES" data-speed="1500"></span>
+                    </div>
+                    <div class="demo-description">
+                        Multiple effects can be combined for unique animations.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usage Instructions -->
+            <div class="demo-section">
+                <h2 class="demo-title">How to Use</h2>
+                <div class="demo-example">
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">HTML Classes:</h3>
+                    <pre style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; overflow-x: auto; color: var(--text-secondary);">
+&lt;!-- Typewriter Effect --&gt;
+&lt;span class="typewriter-effect" data-speed="100" data-delay="500"&gt;Your text&lt;/span&gt;
+
+&lt;!-- Trip Rider (Text Rotation) --&gt;
+&lt;span class="trip-rider-typing" data-words="Text1,Text2,Text3" data-speed="2000"&gt;&lt;/span&gt;
+
+&lt;!-- Wave Text --&gt;
+&lt;span class="wave-text"&gt;WAVE TEXT&lt;/span&gt;
+
+&lt;!-- Neon Effect --&gt;
+&lt;span class="neon-text"&gt;NEON TEXT&lt;/span&gt;
+
+&lt;!-- Hologram Effect --&gt;
+&lt;span class="hologram-text"&gt;HOLOGRAM&lt;/span&gt;
+
+&lt;!-- Scramble Effect --&gt;
+&lt;span class="scramble-text" data-trip-effect="scramble"&gt;SCRAMBLE&lt;/span&gt;
+
+&lt;!-- Glitch Effect --&gt;
+&lt;span data-trip-effect="glitch"&gt;GLITCH&lt;/span&gt;
+
+&lt;!-- Matrix Background --&gt;
+&lt;div data-trip-effect="matrix"&gt;Content with matrix background&lt;/div&gt;
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Bhupesh Indurkar. All rights reserved.</p>
+                    <p class="created-by">Created by BHUPESH</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/bhupesh-indurkar-64865b321/" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/bhupeshindurkar" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@bhupeshindurkar159" target="_blank" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

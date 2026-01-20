@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Bhupesh Indurkar</title>
+    <meta name="description" content="Explore the portfolio of projects by Bhupesh Indurkar, showcasing Full Stack Web Development expertise">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/glassmorphism.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="gradient-text">Bhupesh</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Hero -->
+    <section class="projects-hero">
+        <div class="container">
+            <div class="projects-hero-content">
+                <h1 class="gradient-text animate-fade-up">My Projects</h1>
+                <p class="projects-subtitle animate-fade-up delay-1">
+                    <span class="typewriter-effect" data-speed="70" data-delay="1000">
+                        A showcase of my work in Full Stack Web Development and beyond
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Filters -->
+    <section class="project-filters">
+        <div class="container">
+            <div class="filter-buttons animate-fade-up">
+                <button class="filter-btn glass-button active" data-filter="all">All Projects</button>
+                <button class="filter-btn glass-button" data-filter="python">Python</button>
+                <button class="filter-btn glass-button" data-filter="web">Web Apps</button>
+                <button class="filter-btn glass-button" data-filter="api">APIs</button>
+                <button class="filter-btn glass-button" data-filter="ai">AI/ML</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Project -->
+    <section class="featured-project">
+        <div class="container">
+            <div class="featured-project-content glass-panel animate-slide-up">
+                <div class="featured-project-info">
+                    <div class="featured-badge">Featured Project</div>
+                    <h2 class="featured-title gradient-text">
+                        <span class="scramble-text" data-trip-effect="scramble">Language Translator</span>
+                    </h2>
+                    <p class="featured-description">
+                        A comprehensive language translation application built with Python and Flask. 
+                        Features real-time translation, multiple language support, and a clean, intuitive 
+                        user interface. Integrates with external translation APIs for accurate results.
+                    </p>
+                    <div class="featured-tech">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Flask</span>
+                        <span class="tech-badge">REST API</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">Bootstrap</span>
+                    </div>
+                    <div class="featured-links">
+                        <a href="#" class="btn-glass primary">Live Demo</a>
+                        <a href="https://github.com/bhupeshindurkar" class="btn-glass secondary">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+                <div class="featured-project-image">
+                    <img src="assets/images/project-thumbs/translator.png" alt="Language Translator" class="featured-img">
+                    <div class="featured-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Projects -->
+    <section class="all-projects">
+        <div class="container">
+            <h2 class="section-title gradient-text">All Projects</h2>
+            <div class="projects-grid">
+                <!-- Language Translator -->
+                <div class="project-card glass-card tilt-card animate-scale-in" data-category="python web api">
+                    <div class="project-image">
+                        <img src="assets/images/project-thumbs/translator.png" alt="Language Translator">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/bhupeshindurkar" class="project-link" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Language Translator</h3>
+                        <p class="project-description">
+                            Advanced translation application with support for multiple languages, 
+                            real-time translation, and user-friendly interface.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">REST API</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>Featured</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-code"></i>
+                                <span>Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Chatbot -->
+                <div class="project-card glass-card tilt-card animate-scale-in delay-1" data-category="nodejs ai web">
+                    <div class="project-image">
+                        <img src="assets/images/project-thumbs/chatboot.png" alt="Interactive Chatbot">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/bhupeshindurkar" class="project-link" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Interactive Chatbot</h3>
+                        <p class="project-description">
+                            AI-powered chatbot with natural language processing capabilities, 
+                            context awareness, and intelligent response generation.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">NLP</span>
+                            <span class="tech-badge">AI</span>
+                            <span class="tech-badge">MongoDB</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-robot"></i>
+                                <span>AI/ML</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-comments"></i>
+                                <span>Interactive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-Commerce Web Application -->
+                <div class="project-card glass-card tilt-card animate-scale-in delay-2" data-category="react web">
+                    <div class="project-image">
+                        <img src="assets/images/project-thumbs/ecommerce.png" alt="E-Commerce Application">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/bhupeshindurkar" class="project-link" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">
+                            Full-featured e-commerce web application with user authentication, 
+                            product catalog, shopping cart, and payment integration.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Express</span>
+                            <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">Bootstrap</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>E-Commerce</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>Multi-user</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task Management System -->
+                <div class="project-card glass-card tilt-card animate-scale-in delay-3" data-category="java web">
+                    <div class="project-image">
+                        <img src="assets/images/project-thumbs/task-manager.png" alt="Task Management System">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/bhupeshindurkar" class="project-link" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Task Management System</h3>
+                        <p class="project-description">
+                            Comprehensive task management application with project tracking, 
+                            team collaboration, and progress monitoring features.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">Spring Boot</span>
+                            <span class="tech-badge">JPA</span>
+                            <span class="tech-badge">Thymeleaf</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-tasks"></i>
+                                <span>Productivity</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REST API Service -->
+                <div class="project-card glass-card tilt-card animate-scale-in delay-4" data-category="java api">
+                    <div class="project-image">
+                        <img src="assets/images/project-thumbs/api-server.png" alt="REST API Service">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="API Documentation">
+                                    <i class="fas fa-book"></i>
+                                </a>
+                                <a href="https://github.com/bhupeshindurkar" class="project-link" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">RESTful API Service</h3>
+                        <p class="project-description">
+                            Scalable REST API service with comprehensive documentation, 
+                            authentication, rate limiting, and monitoring capabilities.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">Spring Boot</span>
+                            <span class="tech-badge">REST</span>
+                            <span class="tech-badge">Swagger</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-server"></i>
+                                <span>Backend</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Website -->
+                <div class="project-card glass-card tilt-card animate-scale-in delay-5" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/images/project-thumbs/portfollio.png" alt="Portfolio Website">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/bhupeshindurkar" class="project-link" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <p class="project-description">
+                            Modern, responsive portfolio website with glassmorphism effects, 
+                            animations, and interactive elements showcasing my work.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">Responsive</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-palette"></i>
+                                <span>Design</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Responsive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Application -->
+                <div class="project-card glass-card tilt-card animate-scale-in delay-6" data-category="java web">
+                    <div class="project-image">
+                        <img src="assets/images/project-thumbs/web-app.png" alt="Web Application">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/bhupeshindurkar" class="project-link" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Full-Stack Web Application</h3>
+                        <p class="project-description">
+                            Complete web application with modern UI/UX design, 
+                            backend API integration, and responsive frontend components.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">Spring Boot</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Bootstrap</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-layer-group"></i>
+                                <span>Full-Stack</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-database"></i>
+                                <span>Database</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Statistics -->
+    <section class="project-stats-section">
+        <div class="container">
+            <h2 class="section-title gradient-text">Project Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card glass-card animate-slide-up">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-number" data-count="7">0</div>
+                    <div class="stat-label">Total Projects</div>
+                </div>
+                <div class="stat-card glass-card animate-slide-up delay-1">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-number" data-count="6">0</div>
+                    <div class="stat-label">Programming Languages</div>
+                </div>
+                <div class="stat-card glass-card animate-slide-up delay-2">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">Web Applications</div>
+                </div>
+                <div class="stat-card glass-card animate-slide-up delay-3">
+                    <div class="stat-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">GitHub Commits</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="project-cta">
+        <div class="container">
+            <div class="cta-content glass-panel animate-fade-up">
+                <h2 class="cta-title gradient-text">Interested in My Work?</h2>
+                <p class="cta-description">
+                    I'm always excited to work on new projects and collaborate with fellow developers. 
+                    Let's discuss how we can bring your ideas to life!
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-glass primary">Get In Touch</a>
+                    <a href="https://github.com/bhupeshindurkar" class="btn-glass secondary">
+                        <i class="fab fa-github"></i> View GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Bhupesh Indurkar. All rights reserved.</p>
+                    <p class="created-by">Created by BHUPESH</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/bhupesh-indurkar-64865b321/" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/bhupeshindurkar" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@bhupeshindurkar159" target="_blank" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>
