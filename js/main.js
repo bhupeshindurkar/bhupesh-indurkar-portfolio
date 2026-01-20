@@ -875,3 +875,180 @@ window.portfolioUtils = {
     initEnhancedContactForm,
     initEnhancedProjectFilters
 };
+
+// Mobile Navigation Functionality
+function initMobileNavigation() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const body = document.body;
+
+    // Create hamburger if it doesn't exist
+    if (!hamburger) {
+        const navContainer = document.querySelector('.nav-container');
+        const hamburgerElement = document.createElement('div');
+        hamburgerElement.className = 'hamburger';
+        hamburgerElement.innerHTML = '<span></span><span></span><span></span>';
+        navContainer.appendChild(hamburgerElement);
+    }
+
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+        const hamburgerBtn = document.querySelector('.hamburger');
+        const menu = document.querySelector('.nav-menu');
+        
+        if (hamburgerBtn && menu) {
+            hamburgerBtn.classList.toggle('active');
+            menu.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        }
+    }
+
+    // Close mobile menu
+    function closeMobileMenu() {
+        const hamburgerBtn = document.querySelector('.hamburger');
+        const menu = document.querySelector('.nav-menu');
+        
+        if (hamburgerBtn && menu) {
+            hamburgerBtn.classList.remove('active');
+            menu.classList.remove('active');
+            body.classList.remove('menu-open');
+        }
+    }
+
+    // Event listeners
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.hamburger')) {
+            e.preventDefault();
+            toggleMobileMenu();
+        }
+    });
+
+    // Close menu when clicking nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-container') && navMenu && navMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+
+    // Close menu on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            closeMobileMenu();
+        }
+    });
+
+    // Prevent body scroll when menu is open
+    const style = document.createElement('style');
+    style.textContent = `
+        body.menu-open {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Mobile Touch Optimizations
+function initMobileTouchOptimizations() {
+    // Add touch class to body for touch-specific styles
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        document.body.classList.add('touch-device');
+    }
+
+    // Improve touch scrolling
+    document.addEventListener('touchstart', function() {}, { passive: true });
+    document.addEventListener('touchmove', function() {}, { passive: true });
+
+    // Handle orientation changes
+    window.addEventListener('orientationchange', function() {
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+        }, 100);
+    });
+
+    // Optimize button touches
+    const buttons = document.querySelectorAll('.btn-glass, .project-link, .social-link');
+    buttons.forEach(button => {
+        button.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.95)';
+        }, { passive: true });
+
+        button.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        }, { passive: true });
+    });
+}
+
+// Mobile Performance Optimizations
+function initMobilePerformanceOptimizations() {
+    // Lazy load images on mobile
+    if (window.innerWidth <= 768) {
+        const images = document.querySelectorAll('img');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => {
+            if (img.src) {
+                img.dataset.src = img.src;
+                img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB2aWV3Qm94PSIwIDAgMSAxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMCwwLDAsMC4xKSIvPjwvc3ZnPg==';
+            }
+            imageObserver.observe(img);
+        });
+    }
+
+    // Reduce animations on mobile for better performance
+    if (window.innerWidth <= 768) {
+        const style = document.createElement('style');
+        style.textContent = `
+            @media (max-width: 768px) {
+                *, *::before, *::after {
+                    animation-duration: 0.3s !important;
+                    transition-duration: 0.3s !important;
+                }
+                
+                .animate-slide-up,
+                .animate-fade-up,
+                .animate-scale-in {
+                    animation-duration: 0.5s !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Initialize mobile-specific functionality
+document.addEventListener('DOMContentLoaded', function() {
+    initMobileNavigation();
+    initMobileTouchOptimizations();
+    initMobilePerformanceOptimizations();
+});
+
+// Mobile viewport height fix
+function setMobileViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+window.addEventListener('resize', setMobileViewportHeight);
+window.addEventListener('orientationchange', setMobileViewportHeight);
+setMobileViewportHeight();
