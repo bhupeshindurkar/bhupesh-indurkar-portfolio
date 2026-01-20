@@ -571,126 +571,192 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1rem;
 }
 
-/* Simple Background Animations */
-.hero {
-    position: relative;
-    overflow: hidden;
+/* Professional Background */
+.professional-background {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.03) 0%, rgba(80, 200, 120, 0.03) 100%);
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, 
-        rgba(74, 144, 226, 0.1) 0%, 
-        rgba(80, 200, 120, 0.1) 25%, 
-        rgba(255, 107, 107, 0.1) 50%, 
-        rgba(74, 144, 226, 0.1) 75%, 
-        rgba(80, 200, 120, 0.1) 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease-in-out infinite;
-    z-index: -1;
+.professional-content {
+    display: grid;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(80, 200, 120, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(255, 107, 107, 0.2) 0%, transparent 50%);
-    animation: floatingOrbs 6s ease-in-out infinite alternate;
-    z-index: -1;
+.professional-overview {
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
 }
 
-@keyframes gradientShift {
-    0%, 100% {
-        background-position: 0% 50%;
+.overview-header {
+    margin-bottom: 2rem;
+}
+
+.professional-title h3 {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.title-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+.professional-description {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.professional-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.skills-expertise {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.expertise-section {
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.expertise-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.15);
+    border-color: rgba(74, 144, 226, 0.3);
+}
+
+.expertise-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.expertise-title i {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+}
+
+.expertise-section p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.core-competencies {
+    padding: 3rem;
+    border-radius: 20px;
+}
+
+.competencies-title {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+}
+
+.competencies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.competency-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+}
+
+.competency-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(8px);
+    border-color: rgba(74, 144, 226, 0.3);
+}
+
+.competency-item i {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    min-width: 20px;
+}
+
+.competency-item span {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .professional-background {
+        padding: 3rem 0;
     }
-    50% {
-        background-position: 100% 50%;
+    
+    .professional-overview,
+    .core-competencies {
+        padding: 2rem;
+    }
+    
+    .professional-title h3 {
+        font-size: 1.8rem;
+    }
+    
+    .skills-expertise {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .competencies-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .competency-item {
+        padding: 1rem;
+    }
+    
+    .expertise-section {
+        padding: 1.5rem;
     }
 }
 
-@keyframes floatingOrbs {
-    0% {
-        transform: translateY(0px) rotate(0deg);
-        opacity: 0.7;
+@media (max-width: 480px) {
+    .professional-title h3 {
+        font-size: 1.6rem;
     }
-    100% {
-        transform: translateY(-20px) rotate(180deg);
-        opacity: 0.9;
+    
+    .competencies-title {
+        font-size: 1.5rem;
     }
-}
-
-/* Animated particles */
-.geometric-shapes {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.shape {
-    position: absolute;
-    opacity: 0.1;
-    animation: float 6s ease-in-out infinite;
-}
-
-.shape-1 {
-    top: 10%;
-    left: 10%;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    border-radius: 50%;
-    animation-delay: 0s;
-}
-
-.shape-2 {
-    top: 20%;
-    right: 10%;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
-    transform: rotate(45deg);
-    animation-delay: 2s;
-}
-
-.shape-3 {
-    bottom: 30%;
-    left: 20%;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
-    border-radius: 30%;
-    animation-delay: 4s;
-}
-
-.shape-4 {
-    bottom: 10%;
-    right: 20%;
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-    border-radius: 50%;
-    animation-delay: 1s;
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-30px) rotate(180deg);
+    
+    .professional-description p {
+        font-size: 1rem;
     }
 }
 
