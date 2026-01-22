@@ -14,6 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initButtonAnimations();
     initImageAnimations();
     initHomepageTypewriter();
+    
+    // Initialize CGPA animations for certifications page
+    if (document.querySelector('.cgpa-counter, .sgpa-counter')) {
+        console.log('CGPA counters found, initializing animations...');
+        setTimeout(() => {
+            initCGPAAnimations();
+        }, 1000);
+    }
 });
 
 // Initialize only homepage typewriter
@@ -1205,4 +1213,178 @@ function initQuickFeedbackForm() {
 // Initialize quick feedback form
 document.addEventListener('DOMContentLoaded', function() {
     initQuickFeedbackForm();
+});
+// Enhanced CGPA Counter Animations
+function initCGPAAnimations() {
+    console.log('initCGPAAnimations called');
+    
+    const cgpaCounters = document.querySelectorAll('.cgpa-counter, .sgpa-counter');
+    const progressBars = document.querySelectorAll('.progress-fill');
+    
+    console.log('Found CGPA counters:', cgpaCounters.length);
+    console.log('Found progress bars:', progressBars.length);
+    
+    // If no elements found, try again after a delay
+    if (cgpaCounters.length === 0) {
+        console.log('No CGPA counters found, retrying in 1 second...');
+        setTimeout(() => {
+            initCGPAAnimations();
+        }, 1000);
+        return;
+    }
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                console.log('Element in view:', entry.target.className);
+                
+                // Animate counters
+                if (entry.target.classList.contains('cgpa-counter') || entry.target.classList.contains('sgpa-counter')) {
+                    console.log('Animating counter:', entry.target.getAttribute('data-target'));
+                    animateCGPACounter(entry.target);
+                }
+                
+                // Animate progress bars
+                if (entry.target.classList.contains('progress-fill')) {
+                    const width = entry.target.getAttribute('data-width');
+                    console.log('Animating progress bar to:', width);
+                    setTimeout(() => {
+                        entry.target.style.width = width;
+                    }, 500);
+                }
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 }); // Reduced threshold for easier triggering
+    
+    cgpaCounters.forEach(counter => {
+        console.log('Observing counter:', counter.getAttribute('data-target'));
+        // Force visibility
+        counter.style.opacity = '1';
+        counter.style.visibility = 'visible';
+        counter.style.display = 'block';
+        observer.observe(counter);
+    });
+    
+    progressBars.forEach(bar => {
+        console.log('Observing progress bar:', bar.getAttribute('data-width'));
+        observer.observe(bar);
+    });
+    
+    // Fallback: trigger animations immediately if elements are already in view
+    setTimeout(() => {
+        cgpaCounters.forEach(counter => {
+            const rect = counter.getBoundingClientRect();
+            const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isInView) {
+                console.log('Counter already in view, animating immediately:', counter.getAttribute('data-target'));
+                animateCGPACounter(counter);
+            }
+        });
+    }, 2000);
+}
+
+function animateCGPACounter(element) {
+    const target = parseFloat(element.getAttribute('data-target'));
+    const duration = 2500;
+    const startTime = performance.now();
+    
+    console.log('Starting animation for target:', target);
+    
+    // Ensure element is visible
+    element.style.opacity = '1';
+    element.style.visibility = 'visible';
+    element.style.display = 'block';
+    element.style.color = '#ffffff';
+    
+    const easeOutExpo = (t) => {
+        return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    };
+    
+    const updateCounter = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutExpo(progress);
+        const current = easedProgress * target;
+        
+        element.textContent = current.toFixed(2);
+        
+        // Add pulsing effect during animation
+        const scale = 1 + (Math.sin(progress * Math.PI * 2) * 0.05);
+        element.style.transform = `scale(${scale})`;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target.toFixed(2);
+            element.style.transform = 'scale(1)';
+            
+            // Add completion glow
+            element.style.textShadow = '0 0 20px rgba(41, 98, 255, 0.8)';
+            element.style.color = '#4A90E2';
+            
+            setTimeout(() => {
+                element.style.textShadow = '';
+                element.style.color = '#ffffff';
+            }, 1500);
+            
+            console.log('Animation completed for:', target);
+        }
+    };
+    
+    requestAnimationFrame(updateCounter);
+}
+
+// Download functionality with notifications
+function initDownloadNotifications() {
+    const downloadButtons = document.querySelectorAll('.download-btn');
+    
+    downloadButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            // Show download notification
+            showDownloadNotification();
+            
+            // Add download animation
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 150);
+        });
+    });
+}
+
+function showDownloadNotification() {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #4CAF50, #45a049);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 10000;
+        font-weight: 600;
+        animation: slideInRight 0.5s ease;
+    `;
+    notification.innerHTML = `
+        <i class="fas fa-download" style="margin-right: 8px;"></i>
+        Certificate download started!
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOutRight 0.5s ease';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 500);
+    }, 3000);
+}
+
+// Initialize download notifications
+document.addEventListener('DOMContentLoaded', () => {
+    initDownloadNotifications();
 });

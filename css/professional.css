@@ -1,0 +1,84 @@
+/* Professional Theme CSS */
+body.professional-theme {
+    background-color: #f8f9fa;
+    color: #343a40;
+    font-family: 'Inter', sans-serif;
+}
+
+.professional-theme .gradient-text {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.professional-theme .navbar {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #dee2e6;
+}
+
+.professional-theme .nav-link {
+    color: #343a40;
+}
+
+.professional-theme .nav-link.active,
+.professional-theme .nav-link:hover {
+    color: #007bff;
+}
+
+.professional-theme .hero {
+    background: none;
+}
+
+.professional-theme .hero-background {
+    display: none;
+}
+
+.professional-theme .main-title {
+    font-size: 3.5rem;
+}
+
+.professional-theme .hero-tagline {
+    font-size: 1.5rem;
+    color: #6c757d;
+}
+
+.professional-theme .btn-glass.primary {
+    background-color: #007bff;
+    color: #ffffff;
+    border: 1px solid #007bff;
+}
+
+.professional-theme .btn-glass.primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.professional-theme .btn-glass.secondary {
+    background-color: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.professional-theme .btn-glass.secondary:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.professional-theme .stat-card,
+.professional-theme .project-card,
+.professional-theme .footer {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+.professional-theme .stat-icon {
+    color: #007bff;
+}
+
+.professional-theme .project-tech .tech-badge {
+    background-color: #e9ecef;
+    color: #495057;
+}

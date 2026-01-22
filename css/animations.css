@@ -976,3 +976,67 @@
         display: none;
     }
 }
+/* Download Notification Animations */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Enhanced CGPA Progress Animations */
+@keyframes progressGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(41, 98, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(41, 98, 255, 0.6);
+    }
+}
+
+.progress-fill {
+    animation: progressGlow 2s ease-in-out infinite;
+}
+
+/* Counter Pulse Animation */
+@keyframes counterPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.cgpa-counter, .sgpa-counter {
+    animation: counterPulse 2s ease-in-out infinite;
+}
+
+/* Stat Box Hover Animation */
+@keyframes statBoxFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.animated-stat:hover {
+    animation: statBoxFloat 1s ease-in-out infinite;
+}
