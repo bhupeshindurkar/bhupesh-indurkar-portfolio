@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/glassmorphism.css">
     <link rel="stylesheet" href="css/animations.css">
@@ -50,40 +52,40 @@
             </div>
         </div>
         
-        <!-- Main Header -->
-        <div class="hero-header">
-            <div class="container">
-                <h1 class="main-title gradient-text">
-                    <span class="typewriter-effect" data-speed="80" data-delay="200">Bhupesh Indurkar</span>
+        <div class="container">
+            <div class="hero-content-centered">
+                <!-- Profile Photo -->
+                <div class="hero-image" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="profile-container glass-card">
+                        <img src="assets/images/profile.jpg" alt="Bhupesh Indurkar" class="profile-img">
+                        <div class="profile-glow"></div>
+                    </div>
+                </div>
+                
+                <!-- Name with Typed.js (Fast Speed) -->
+                <h1 class="main-title gradient-text" data-aos="fade-up" data-aos-delay="400">
+                    <span class="typed-name"></span>
                 </h1>
-                <div class="header-location">
+                
+                <!-- Title with Animation -->
+                <h2 class="hero-tagline" data-aos="fade-up" data-aos-delay="800">Full Stack Developer</h2>
+                
+                <!-- Location with Animation -->
+                <div class="header-location" data-aos="fade-up" data-aos-delay="1000">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Nagpur, Maharashtra, India</span>
                 </div>
-            </div>
-        </div>
-
-        <!-- Hero Content -->
-        <div class="hero-main">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h2 class="hero-tagline">Web Developer</h2>
-                        <p class="hero-intro">
-                            Passionate about creating robust web applications with modern technologies. 
-                            Specializing in full-stack development with a focus on clean code and innovative solutions.
-                        </p>
-                        <div class="hero-buttons">
-                            <a href="projects.html" class="btn-glass primary">View My Work</a>
-                            <a href="contact.html" class="btn-glass secondary">Get In Touch</a>
-                        </div>
-                    </div>
-                    <div class="hero-image">
-                        <div class="profile-container glass-card">
-                            <img src="assets/images/profile.jpg" alt="Bhupesh Indurkar" class="profile-img simple-img-animation">
-                            <div class="profile-glow"></div>
-                        </div>
-                    </div>
+                
+                <!-- Description with Animation -->
+                <p class="hero-intro" data-aos="fade-up" data-aos-delay="1200">
+                    Passionate about creating robust web applications with modern technologies. 
+                    Specializing in full-stack development with a focus on clean code and innovative solutions.
+                </p>
+                
+                <!-- Buttons with Animation -->
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="1400">
+                    <a href="projects.html" class="btn-glass primary">View My Work</a>
+                    <a href="contact.html" class="btn-glass secondary">Get In Touch</a>
                 </div>
             </div>
         </div>
@@ -92,238 +94,27 @@
     <!-- Quick Stats -->
     <section class="stats">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card glass-card animate-slide-up">
+            <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); max-width: 900px; margin: 0 auto;">
+                <div class="stat-card glass-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="stat-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="stat-number" data-count="90" data-suffix="%">90%</h3>
+                    <div class="stat-label">Full Stack Development</div>
+                </div>
+                <div class="stat-card glass-card" data-aos="flip-left" data-aos-delay="200">
                     <div class="stat-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <div class="stat-number" data-count="6">0</div>
-                    <div class="stat-label">Projects Completed</div>
+                    <h3 class="stat-number" data-count="85" data-suffix="%">85%</h3>
+                    <div class="stat-label">Backend Expertise</div>
                 </div>
-                <div class="stat-card glass-card animate-slide-up delay-1">
+                <div class="stat-card glass-card" data-aos="flip-left" data-aos-delay="300">
                     <div class="stat-icon">
-                        <i class="fas fa-coffee"></i>
+                        <i class="fas fa-database"></i>
                     </div>
-                    <div class="stat-number" data-count="500">0</div>
-                    <div class="stat-label">Cups of Coffee</div>
-                </div>
-                <div class="stat-card glass-card animate-slide-up delay-2">
-                    <div class="stat-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="stat-number" data-count="5">0</div>
-                    <div class="stat-label">Technologies Mastered</div>
-                </div>
-                <div class="stat-card glass-card animate-slide-up delay-3">
-                    <div class="stat-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <div class="stat-number" data-count="50">0</div>
-                    <div class="stat-label">GitHub Commits</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Professional Background -->
-    <section class="professional-background">
-        <div class="container">
-            <h2 class="section-title gradient-text">Professional Background</h2>
-            <div class="professional-content">
-                <div class="professional-overview glass-panel">
-                    <div class="overview-header">
-                        <div class="professional-title">
-                            <h3>Full Stack Web Developer</h3>
-                            <p class="title-subtitle">Passionate about creating innovative digital solutions</p>
-                        </div>
-                    </div>
-                    
-                    <div class="professional-description">
-                        <p>
-                            Passionate and dedicated Full Stack Web Developer with expertise in modern web technologies 
-                            and a strong foundation in both frontend and backend development. Specialized in creating 
-                            scalable, user-friendly applications that solve real-world problems.
-                        </p>
-                        <p>
-                            My journey in software development began with a curiosity about how technology can transform 
-                            ideas into powerful digital solutions. I focus on writing clean, maintainable code while 
-                            ensuring optimal performance and exceptional user experience.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="skills-expertise">
-                    <div class="expertise-section glass-panel">
-                        <h4 class="expertise-title">
-                            <i class="fas fa-laptop-code"></i>
-                            Frontend Development
-                        </h4>
-                        <p>Modern UI/UX with React, Vue.js, and responsive design</p>
-                    </div>
-
-                    <div class="expertise-section glass-panel">
-                        <h4 class="expertise-title">
-                            <i class="fas fa-server"></i>
-                            Backend Development
-                        </h4>
-                        <p>Robust APIs with Node.js, Python, and database management</p>
-                    </div>
-
-                    <div class="expertise-section glass-panel">
-                        <h4 class="expertise-title">
-                            <i class="fas fa-mobile-alt"></i>
-                            Responsive Design
-                        </h4>
-                        <p>Mobile-first approach with cross-platform compatibility</p>
-                    </div>
-
-                    <div class="expertise-section glass-panel">
-                        <h4 class="expertise-title">
-                            <i class="fas fa-tools"></i>
-                            Development Tools
-                        </h4>
-                        <p>Git, Docker, CI/CD, and modern development workflows</p>
-                    </div>
-                </div>
-
-                <div class="core-competencies glass-panel">
-                    <h4 class="competencies-title">Core Competencies</h4>
-                    <div class="competencies-grid">
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Full-Stack Web Application Development</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>RESTful API Design and Implementation</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Database Design and Optimization</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Modern JavaScript Frameworks</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Cloud Services and Deployment</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Agile Development Methodologies</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Database Design and Optimization</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Modern JavaScript Frameworks</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Cloud Services and Deployment</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Agile Development Methodologies</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Projects -->nd -->
-    <section class="professional-background">
-        <div class="container">
-            <h2 class="section-title gradient-text">Professional Web </h2>
-            <div class="background-content">
-                <div class="background-main glass-panel animate-fade-up">
-                    <div class="background-text">
-                        <h3 class="background-title">Full Stack Web Developer</h3>
-                        <p class="background-description">
-                            Passionate and dedicated Full Stack Web Developer with expertise in modern web technologies 
-                            and a strong foundation in both frontend and backend development. Specialized in creating 
-                            scalable, user-friendly applications that solve real-world problems.
-                        </p>
-                        <p class="background-description">
-                            My journey in software development began with a curiosity about how technology can transform 
-                            ideas into powerful digital solutions. I focus on writing clean, maintainable code while 
-                            ensuring optimal performance and exceptional user experience.
-                        </p>
-                    </div>
-                    
-                    <div class="background-highlights">
-                        <div class="highlight-grid">
-                            <div class="highlight-item glass-card animate-scale-in">
-                                <div class="highlight-icon">
-                                    <i class="fas fa-laptop-code"></i>
-                                </div>
-                                <h4 class="highlight-title">Frontend Development</h4>
-                                <p class="highlight-desc">Modern UI/UX with React, Vue.js, and responsive design</p>
-                            </div>
-                            
-                            <div class="highlight-item glass-card animate-scale-in delay-1">
-                                <div class="highlight-icon">
-                                    <i class="fas fa-server"></i>
-                                </div>
-                                <h4 class="highlight-title">Backend Development</h4>
-                                <p class="highlight-desc">Robust APIs with Node.js, Python, and database management</p>
-                            </div>
-                            
-                            <div class="highlight-item glass-card animate-scale-in delay-2">
-                                <div class="highlight-icon">
-                                    <i class="fas fa-mobile-alt"></i>
-                                </div>
-                                <h4 class="highlight-title">Responsive Design</h4>
-                                <p class="highlight-desc">Mobile-first approach with cross-platform compatibility</p>
-                            </div>
-                            
-                            <div class="highlight-item glass-card animate-scale-in delay-3">
-                                <div class="highlight-icon">
-                                    <i class="fas fa-tools"></i>
-                                </div>
-                                <h4 class="highlight-title">Development Tools</h4>
-                                <p class="highlight-desc">Git, Docker, CI/CD, and modern development workflows</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="background-experience glass-panel animate-fade-up delay-1">
-                    <h3 class="experience-title">Core Competencies</h3>
-                    <div class="competencies-list">
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Full-Stack Web Application Development</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>RESTful API Design and Implementation</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Database Design and Optimization</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Modern JavaScript Frameworks</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Cloud Services and Deployment</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Agile Development Methodologies</span>
-                        </div>
-                    </div>
+                    <h3 class="stat-number" data-count="80" data-suffix="%">80%</h3>
+                    <div class="stat-label">Database Management</div>
                 </div>
             </div>
         </div>
@@ -696,7 +487,34 @@
         </div>
     </footer>
 
+    <!-- Animation Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
+    
+    <!-- Initialize Libraries -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+        
+        // Initialize Typed.js for name only (Fast Speed)
+        setTimeout(() => {
+            var typedName = new Typed('.typed-name', {
+                strings: ['Bhupesh Indurkar'],
+                typeSpeed: 80,
+                backSpeed: 50,
+                loop: false,
+                showCursor: true,
+                cursorChar: '|',
+                autoInsertCss: true
+            });
+        }, 500);
+    </script>
 </body>
 </html>

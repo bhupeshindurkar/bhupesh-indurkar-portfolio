@@ -18,36 +18,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize only homepage typewriter
 function initHomepageTypewriter() {
-    // Only initialize typewriter for homepage name
-    const typewriterElements = document.querySelectorAll('.typewriter-effect');
-    typewriterElements.forEach(element => {
-        const text = element.textContent.trim();
-        const speed = parseInt(element.getAttribute('data-speed')) || 100;
-        const delay = parseInt(element.getAttribute('data-delay')) || 0;
+    // Wait for page to fully load
+    setTimeout(() => {
+        const typewriterElements = document.querySelectorAll('.typewriter-effect');
         
-        // Clear the element and prepare for typing
-        element.textContent = '';
-        element.style.opacity = '1';
-        element.style.visibility = 'visible';
+        if (typewriterElements.length === 0) {
+            console.log('No typewriter elements found');
+            return;
+        }
         
-        setTimeout(() => {
-            startSimpleTypewriter(element, text, speed);
-        }, delay);
-    });
+        console.log('Found typewriter elements:', typewriterElements.length);
+        
+        typewriterElements.forEach((element, index) => {
+            const text = element.textContent.trim();
+            const speed = parseInt(element.getAttribute('data-speed')) || 100;
+            const delay = parseInt(element.getAttribute('data-delay')) || 0;
+            
+            console.log('Initializing typewriter for:', text);
+            
+            // Clear the element
+            element.textContent = '';
+            element.style.display = 'inline-block';
+            element.style.borderRight = '2px solid #4A90E2';
+            element.style.paddingRight = '5px';
+            
+            // Start typing after delay
+            setTimeout(() => {
+                typeText(element, text, speed);
+            }, delay);
+        });
+    }, 100);
 }
 
-// Simple Typewriter Effect Function
-function startSimpleTypewriter(element, text, speed) {
-    // Clear any existing content and styling
-    element.textContent = '';
-    element.style.borderRight = '2px solid var(--secondary-color)';
-    element.style.animation = 'blink 1.2s infinite';
-    element.style.display = 'inline-block';
+// Type text character by character
+function typeText(element, text, speed) {
+    let index = 0;
     
-    let i = 0;
     const typeInterval = setInterval(() => {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
+        if (index < text.length) {
+            element.textContent += text.charAt(index);
+            index++;
+        } else {
+            clearInterval(typeInterval);
+            // Keep cursor blinking
+            setInterval(() => {
+                if (element.style.borderRight === '2px solid #4A90E2') {
+                    element.style.borderRight = '2px solid transparent';
+                } else {
+                    element.style.borderRight = '2px solid #4A90E2';
+                }
+            }, 500);
+        }
+    }, speed);
+}
+            }
+        }
+    }, speed);
+}
             i++;
         } else {
             clearInterval(typeInterval);
@@ -307,9 +334,17 @@ function initScrollAnimations() {
     });
 }
 
-// Animated counters
+// Professional Animated Counters with Easing
 function initCounters() {
     const counters = document.querySelectorAll('.stat-number');
+    
+    // Make sure counters are visible initially
+    counters.forEach(counter => {
+        counter.style.opacity = '1';
+        counter.style.visibility = 'visible';
+        counter.style.display = 'block';
+    });
+    
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -317,7 +352,7 @@ function initCounters() {
                 counterObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
 
     counters.forEach(counter => {
         counterObserver.observe(counter);
@@ -326,18 +361,48 @@ function initCounters() {
 
 function animateCounter(element) {
     const target = parseInt(element.getAttribute('data-count'));
-    const duration = 2000;
-    const step = target / (duration / 16);
-    let current = 0;
-
-    const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
+    const duration = 2000; // 2 seconds animation
+    const startTime = performance.now();
+    
+    // Add suffix if present
+    const suffix = element.getAttribute('data-suffix') || '';
+    
+    // Easing function for smooth acceleration and deceleration
+    const easeOutExpo = (t) => {
+        return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    };
+    
+    const updateCounter = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutExpo(progress);
+        const current = Math.floor(easedProgress * target);
+        
+        // Update text content
+        element.textContent = current + suffix;
+        element.style.opacity = '1';
+        element.style.visibility = 'visible';
+        
+        // Add pulsing effect during animation
+        const scale = 1 + (Math.sin(progress * Math.PI) * 0.08);
+        element.style.transform = `scale(${scale})`;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            // Final state
+            element.textContent = target + suffix;
+            element.style.transform = 'scale(1)';
+            
+            // Add completion glow effect
+            element.style.filter = 'drop-shadow(0 0 10px rgba(41, 98, 255, 0.8))';
+            setTimeout(() => {
+                element.style.filter = '';
+            }, 500);
         }
-        element.textContent = Math.floor(current);
-    }, 16);
+    };
+    
+    requestAnimationFrame(updateCounter);
 }
 
 // Tilt effect for cards
@@ -1052,3 +1117,92 @@ function setMobileViewportHeight() {
 window.addEventListener('resize', setMobileViewportHeight);
 window.addEventListener('orientationchange', setMobileViewportHeight);
 setMobileViewportHeight();
+// Feedback Form Handler
+function initFeedbackForm() {
+    const feedbackForm = document.getElementById('feedbackForm');
+    const feedbackSuccess = document.getElementById('feedbackSuccess');
+    
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('feedback-name').value,
+                email: document.getElementById('feedback-email').value,
+                category: document.getElementById('feedback-category').value,
+                rating: document.querySelector('input[name="rating"]:checked')?.value || 'Not rated',
+                message: document.getElementById('feedback-message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Log feedback data (in production, send to backend)
+            console.log('Feedback submitted:', formData);
+            
+            // Show success message
+            feedbackForm.style.display = 'none';
+            feedbackSuccess.style.display = 'block';
+            
+            // Reset form after 5 seconds
+            setTimeout(() => {
+                feedbackForm.reset();
+                feedbackForm.style.display = 'flex';
+                feedbackSuccess.style.display = 'none';
+            }, 5000);
+            
+            // Optional: Send to backend API
+            // fetch('/api/feedback', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(formData)
+            // });
+        });
+    }
+}
+
+// Initialize feedback form
+document.addEventListener('DOMContentLoaded', function() {
+    initFeedbackForm();
+});
+// Debug: Check if script is loading
+console.log('Main.js loaded successfully');
+console.log('Typewriter elements found:', document.querySelectorAll('.typewriter-effect').length);
+// Quick Feedback Form Handler
+function initQuickFeedbackForm() {
+    const feedbackForm = document.getElementById('quickFeedbackForm');
+    const successMsg = document.getElementById('feedbackSuccessMsg');
+    
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('feedback-name').value,
+                email: document.getElementById('feedback-email').value,
+                rating: document.querySelector('input[name="rating"]:checked')?.value || 'Not rated',
+                message: document.getElementById('feedback-message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Log feedback (in production, send to backend)
+            console.log('Quick Feedback submitted:', formData);
+            
+            // Show success message
+            feedbackForm.style.display = 'none';
+            successMsg.style.display = 'block';
+            
+            // Reset after 3 seconds
+            setTimeout(() => {
+                feedbackForm.reset();
+                feedbackForm.style.display = 'flex';
+                successMsg.style.display = 'none';
+            }, 3000);
+        });
+    }
+}
+
+// Initialize quick feedback form
+document.addEventListener('DOMContentLoaded', function() {
+    initQuickFeedbackForm();
+});

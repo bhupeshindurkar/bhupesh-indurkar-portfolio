@@ -41,7 +41,7 @@
             <div class="contact-hero-content">
                 <h1 class="gradient-text animate-fade-up">Get In Touch</h1>
                 <p class="contact-subtitle animate-fade-up delay-1">
-                    <span class="trip-rider-typing" data-words="Let's collaborate and bring your ideas to life,Ready to start your next project?,Available for exciting opportunities,Let's build something amazing together" data-speed="3000"></span>
+                    Let's collaborate and bring your ideas to life
                 </p>
             </div>
         </div>
@@ -50,7 +50,7 @@
     <!-- Contact Content -->
     <section class="contact-content">
         <div class="container">
-            <div class="contact-grid">
+            <div class="contact-grid-three">
                 <!-- Contact Form -->
                 <div class="contact-form-section animate-fade-up">
                     <div class="form-container glass-panel">
@@ -178,6 +178,65 @@
                                     <p class="social-desc">Educational Content</p>
                                 </div>
                             </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feedback Form Section -->
+                <div class="feedback-form-section animate-fade-up delay-2">
+                    <div class="feedback-panel glass-panel">
+                        <h2 class="info-title gradient-text">Quick Feedback</h2>
+                        <p class="feedback-subtitle">Share your thoughts or suggestions</p>
+                        
+                        <form class="quick-feedback-form" id="quickFeedbackForm">
+                            <div class="form-group">
+                                <label for="feedback-name" class="form-label">
+                                    <i class="fas fa-user"></i> Name
+                                </label>
+                                <input type="text" id="feedback-name" name="name" class="glass-input" placeholder="Your name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="feedback-email" class="form-label">
+                                    <i class="fas fa-envelope"></i> Email
+                                </label>
+                                <input type="email" id="feedback-email" name="email" class="glass-input" placeholder="your@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="feedback-rating" class="form-label">
+                                    <i class="fas fa-star"></i> Rating
+                                </label>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5" name="rating" value="5">
+                                    <label for="star5" class="star">★</label>
+                                    <input type="radio" id="star4" name="rating" value="4">
+                                    <label for="star4" class="star">★</label>
+                                    <input type="radio" id="star3" name="rating" value="3">
+                                    <label for="star3" class="star">★</label>
+                                    <input type="radio" id="star2" name="rating" value="2">
+                                    <label for="star2" class="star">★</label>
+                                    <input type="radio" id="star1" name="rating" value="1">
+                                    <label for="star1" class="star">★</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="feedback-message" class="form-label">
+                                    <i class="fas fa-comment"></i> Feedback
+                                </label>
+                                <textarea id="feedback-message" name="message" rows="4" class="glass-input" placeholder="Your feedback..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-glass primary submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Submit Feedback</span>
+                            </button>
+                        </form>
+                        
+                        <div class="feedback-success-msg" id="feedbackSuccessMsg" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Thank you for your feedback!</p>
                         </div>
                     </div>
                 </div>
