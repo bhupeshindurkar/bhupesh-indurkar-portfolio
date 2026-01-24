@@ -29,25 +29,6 @@
             <div class="nav-logo">
                 <span class="gradient-text">Bhupesh</span>
             </div>
-            <!-- Simple Mobile Menu Button -->
-            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" style="
-                display: none;
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                z-index: 9999;
-                width: 70px;
-                height: 70px;
-                background: #4A90E2;
-                border: 4px solid #fff;
-                border-radius: 15px;
-                cursor: pointer;
-                font-size: 30px;
-                color: white;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-                font-weight: bold;
-            ">☰</button>
-            
             <ul class="nav-menu" style="
                 position: fixed;
                 top: 100px;
@@ -1855,88 +1836,7 @@
         });
     </script>
                         
-                        hamburger.classList.toggle('active');
-                        navMenu.classList.toggle('active');
-                        
-                        // Prevent body scroll when menu is open
-                        if (navMenu.classList.contains('active')) {
-                            document.body.style.overflow = 'hidden';
-                            document.body.style.position = 'fixed';
-                            document.body.style.width = '100%';
-                        } else {
-                            document.body.style.overflow = 'auto';
-                            document.body.style.position = 'static';
-                        }
-                    }, { passive: false });
-                });
 
-                // Close menu when clicking nav links
-                navLinks.forEach(link => {
-                    ['click', 'touchstart'].forEach(eventType => {
-                        link.addEventListener(eventType, function() {
-                            hamburger.classList.remove('active');
-                            navMenu.classList.remove('active');
-                            document.body.style.overflow = 'auto';
-                            document.body.style.position = 'static';
-                        });
-                    });
-                });
-
-                // Close menu when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                        document.body.style.position = 'static';
-                    }
-                });
-
-                // Touch optimization
-                hamburger.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                });
-            }
-        });
-
-        // Trip Rider Effect - With Initial Delay
-        document.addEventListener('DOMContentLoaded', function() {
-            const tripRiderElement = document.querySelector('.trip-rider-text');
-            if (tripRiderElement) {
-                const words = [
-                    'Certifications & Achievements',
-                    'Professional Credentials', 
-                    'Academic Excellence',
-                    'Industry Recognition'
-                ];
-                let currentIndex = 0;
-                
-                // Ensure initial text is visible
-                tripRiderElement.textContent = words[0];
-                tripRiderElement.style.opacity = '1';
-                tripRiderElement.style.visibility = 'visible';
-                tripRiderElement.style.color = '#ffffff';
-                
-                // Start trip rider after 3 seconds delay
-                setTimeout(() => {
-                    setInterval(() => {
-                        // Slow fade out
-                        tripRiderElement.style.opacity = '0';
-                        tripRiderElement.style.transform = 'translateY(-10px)';
-                        
-                        setTimeout(() => {
-                            // Change text
-                            currentIndex = (currentIndex + 1) % words.length;
-                            tripRiderElement.textContent = words[currentIndex];
-                            
-                            // Slow fade in
-                            tripRiderElement.style.opacity = '1';
-                            tripRiderElement.style.transform = 'translateY(0px)';
-                        }, 1000); // 1 second transition
-                    }, 8000); // 8 seconds between changes (even slower)
-                }, 3000); // 3 second initial delay
-            }
-        });
     </script>
 </body>
 </html>
