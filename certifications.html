@@ -30,17 +30,17 @@
                 <span class="gradient-text">Bhupesh</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="skills.html" class="nav-link">Skills</a></li>
-                <li><a href="projects.html" class="nav-link">Projects</a></li>
-                <li><a href="certifications.html" class="nav-link active">Certifications</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link" onclick="closeMenu()">Home</a></li>
+                <li><a href="about.html" class="nav-link" onclick="closeMenu()">About</a></li>
+                <li><a href="skills.html" class="nav-link" onclick="closeMenu()">Skills</a></li>
+                <li><a href="projects.html" class="nav-link" onclick="closeMenu()">Projects</a></li>
+                <li><a href="certifications.html" class="nav-link active" onclick="closeMenu()">Certifications</a></li>
+                <li><a href="contact.html" class="nav-link" onclick="closeMenu()">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="hamburger" onclick="toggleMobileMenu()" ontouchstart="toggleMobileMenu()" style="background: #4A90E2 !important; border: 3px solid #fff !important;">
+                <span style="background: #fff !important;"></span>
+                <span style="background: #fff !important;"></span>
+                <span style="background: #fff !important;"></span>
             </div>
         </div>
     </nav>
@@ -1340,37 +1340,39 @@
             }
         }
 
-        /* Mobile Navigation Fix - Enhanced */
+        /* Super Enhanced Mobile Navigation */
         .hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
             z-index: 1001;
-            padding: 15px;
-            background: rgba(74, 144, 226, 0.2);
-            border-radius: 10px;
-            border: 2px solid rgba(74, 144, 226, 0.4);
+            padding: 20px;
+            background: rgba(74, 144, 226, 0.8) !important;
+            border-radius: 12px;
+            border: 3px solid rgba(74, 144, 226, 1) !important;
             transition: all 0.3s ease;
             position: relative;
-            min-width: 50px;
-            min-height: 50px;
+            min-width: 60px !important;
+            min-height: 60px !important;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.5) !important;
         }
 
         .hamburger:hover,
         .hamburger:active,
         .hamburger:focus {
-            background: rgba(74, 144, 226, 0.4);
-            border-color: rgba(74, 144, 226, 0.6);
-            transform: scale(1.1);
+            background: rgba(74, 144, 226, 1) !important;
+            border-color: rgba(255, 255, 255, 0.8) !important;
+            transform: scale(1.2) !important;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.8) !important;
         }
 
         .hamburger span {
-            width: 28px;
-            height: 4px;
-            background: #fff;
-            margin: 4px 0;
+            width: 30px !important;
+            height: 5px !important;
+            background: #fff !important;
+            margin: 5px 0 !important;
             transition: 0.3s;
             border-radius: 3px;
             display: block;
@@ -1580,6 +1582,38 @@
 
 
     <script>
+        // Simple Mobile Menu Toggle Function
+        function toggleMobileMenu() {
+            console.log('Toggle function called!');
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                
+                if (navMenu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
+                
+                console.log('Menu toggled!', navMenu.classList.contains('active'));
+            }
+        }
+
+        // Close menu when clicking nav links
+        function closeMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburger && navMenu) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
         // Initialize AOS
         AOS.init({
             duration: 1000,
