@@ -26,13 +26,121 @@
             <div class="nav-logo">
                 <span class="gradient-text">Bhupesh</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="skills.html" class="nav-link">Skills</a></li>
-                <li><a href="projects.html" class="nav-link">Projects</a></li>
-                <li><a href="certifications.html" class="nav-link">Certifications</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <!-- Simple Mobile Menu Button -->
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" style="
+                display: none;
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 9999;
+                width: 70px;
+                height: 70px;
+                background: #4A90E2;
+                border: 4px solid #fff;
+                border-radius: 15px;
+                cursor: pointer;
+                font-size: 30px;
+                color: white;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                font-weight: bold;
+            ">☰</button>
+            
+            <ul class="nav-menu" style="
+                position: fixed;
+                top: 100px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 100px);
+                background: rgba(10, 14, 39, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                list-style: none;
+                margin: 0;
+                padding: 2rem 0;
+            ">
+                <li style="margin: 1rem 0; width: 80%; text-align: center;">
+                    <a href="index.html" class="nav-link active" onclick="closeMenu()" style="
+                        display: block;
+                        padding: 1rem 2rem;
+                        background: rgba(74, 144, 226, 0.4);
+                        border: 2px solid rgba(74, 144, 226, 0.6);
+                        border-radius: 10px;
+                        color: white;
+                        text-decoration: none;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                    ">🏠 Home</a>
+                </li>
+                <li style="margin: 1rem 0; width: 80%; text-align: center;">
+                    <a href="about.html" class="nav-link" onclick="closeMenu()" style="
+                        display: block;
+                        padding: 1rem 2rem;
+                        background: rgba(74, 144, 226, 0.2);
+                        border: 2px solid rgba(74, 144, 226, 0.4);
+                        border-radius: 10px;
+                        color: white;
+                        text-decoration: none;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                    ">👤 About</a>
+                </li>
+                <li style="margin: 1rem 0; width: 80%; text-align: center;">
+                    <a href="skills.html" class="nav-link" onclick="closeMenu()" style="
+                        display: block;
+                        padding: 1rem 2rem;
+                        background: rgba(74, 144, 226, 0.2);
+                        border: 2px solid rgba(74, 144, 226, 0.4);
+                        border-radius: 10px;
+                        color: white;
+                        text-decoration: none;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                    ">⚡ Skills</a>
+                </li>
+                <li style="margin: 1rem 0; width: 80%; text-align: center;">
+                    <a href="projects.html" class="nav-link" onclick="closeMenu()" style="
+                        display: block;
+                        padding: 1rem 2rem;
+                        background: rgba(74, 144, 226, 0.2);
+                        border: 2px solid rgba(74, 144, 226, 0.4);
+                        border-radius: 10px;
+                        color: white;
+                        text-decoration: none;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                    ">💼 Projects</a>
+                </li>
+                <li style="margin: 1rem 0; width: 80%; text-align: center;">
+                    <a href="certifications.html" class="nav-link" onclick="closeMenu()" style="
+                        display: block;
+                        padding: 1rem 2rem;
+                        background: rgba(74, 144, 226, 0.2);
+                        border: 2px solid rgba(74, 144, 226, 0.4);
+                        border-radius: 10px;
+                        color: white;
+                        text-decoration: none;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                    ">🎓 Certifications</a>
+                </li>
+                <li style="margin: 1rem 0; width: 80%; text-align: center;">
+                    <a href="contact.html" class="nav-link" onclick="closeMenu()" style="
+                        display: block;
+                        padding: 1rem 2rem;
+                        background: rgba(74, 144, 226, 0.2);
+                        border: 2px solid rgba(74, 144, 226, 0.4);
+                        border-radius: 10px;
+                        color: white;
+                        text-decoration: none;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                    ">📞 Contact</a>
+                </li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -231,6 +339,72 @@
         </div>
     </section>
 
+    <!-- Faculty Acknowledgment -->
+    <section class="faculty-section">
+        <div class="container">
+            <h2 class="section-title gradient-text">Faculty Acknowledgment</h2>
+            <p class="section-subtitle">Grateful to my mentors and teachers who guided my academic journey</p>
+            
+            <div class="faculty-grid">
+                <div class="faculty-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faculty-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="faculty-name">T.P. Raju Sir</h3>
+                    <p class="faculty-role">Technical Mentor</p>
+                </div>
+                
+                <div class="faculty-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faculty-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="faculty-name">Sayara Mam</h3>
+                    <p class="faculty-role">Academic Guide</p>
+                </div>
+                
+                <div class="faculty-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faculty-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3 class="faculty-name">Anita Mam</h3>
+                    <p class="faculty-role">Subject Expert</p>
+                </div>
+                
+                <div class="faculty-card glass-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faculty-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="faculty-name">Ruchika Mam</h3>
+                    <p class="faculty-role">Programming Instructor</p>
+                </div>
+                
+                <div class="faculty-card glass-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="faculty-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="faculty-name">Ashwini Mam</h3>
+                    <p class="faculty-role">Research Supervisor</p>
+                </div>
+                
+                <div class="faculty-card glass-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="faculty-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="faculty-name">Leena Mam</h3>
+                    <p class="faculty-role">Project Guide</p>
+                </div>
+                
+                <div class="faculty-card glass-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="faculty-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="faculty-name">Swati Mam</h3>
+                    <p class="faculty-role">Academic Coordinator</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer glass-footer">
         <div class="container">
@@ -282,6 +456,60 @@
                 autoInsertCss: true
             });
         }, 500);
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (navMenu.style.left === '0px') {
+                navMenu.style.left = '-100%';
+                mobileBtn.innerHTML = '☰';
+                mobileBtn.style.background = '#4A90E2';
+            } else {
+                navMenu.style.left = '0px';
+                mobileBtn.innerHTML = '✕';
+                mobileBtn.style.background = '#ff4757';
+            }
+        }
+
+        function closeMenu() {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            navMenu.style.left = '-100%';
+            mobileBtn.innerHTML = '☰';
+            mobileBtn.style.background = '#4A90E2';
+        }
+
+        // Show mobile menu button on mobile devices
+        function checkMobileView() {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (window.innerWidth <= 768) {
+                mobileBtn.style.display = 'block';
+                if (hamburger) hamburger.style.display = 'none';
+            } else {
+                mobileBtn.style.display = 'none';
+                if (hamburger) hamburger.style.display = 'block';
+                closeMenu(); // Close menu when switching to desktop
+            }
+        }
+
+        // Check on load and resize
+        window.addEventListener('load', checkMobileView);
+        window.addEventListener('resize', checkMobileView);
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const navMenu = document.querySelector('.nav-menu');
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            
+            if (!e.target.closest('.nav-menu') && !e.target.closest('#mobile-menu-btn') && navMenu.style.left === '0px') {
+                closeMenu();
+            }
+        });
     </script>
 </body>
 </html>
