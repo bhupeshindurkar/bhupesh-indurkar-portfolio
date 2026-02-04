@@ -262,22 +262,53 @@ function initButtonAnimations() {
 // Navigation functionality
 function initNavigation() {
     const hamburger = document.querySelector('.hamburger');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Toggle mobile menu
+    // Toggle mobile menu - Support both hamburger and mobileMenuBtn
     if (hamburger) {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
     }
+    
+    // Mobile menu button click handler
+    if (mobileMenuBtn && navMenu) {
+        console.log('Mobile menu button found, attaching event listener');
+        
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Mobile menu button clicked!');
+            
+            mobileMenuBtn.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuBtn.contains(e.target) && !navMenu.contains(e.target)) {
+                if (navMenu.classList.contains('active')) {
+                    mobileMenuBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                }
+            }
+        });
+    } else {
+        console.error('Mobile menu button or nav menu not found!');
+    }
 
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             hamburger?.classList.remove('active');
+            mobileMenuBtn?.classList.remove('active');
             navMenu?.classList.remove('active');
+            document.body.classList.remove('menu-open');
         });
     });
 

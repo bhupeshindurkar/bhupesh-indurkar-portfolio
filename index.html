@@ -19,98 +19,79 @@
     <link rel="stylesheet" href="css/glassmorphism.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/modern.css">
-    <link rel="stylesheet" href="css/mobile-optimized.css">
+    <link rel="stylesheet" href="css/rutuja-background.css">
+    <link rel="stylesheet" href="css/clean-hero.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar glass-nav">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="gradient-text">BI Indurkar</span>
+                <span class="gradient-text">Bhupesh Indurkar</span>
             </div> 
             
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
             <!-- Navigation Menu -->
-            <ul class="nav-menu" id="navMenu">
+            <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="skills.html" class="nav-link">Skills</a></li>
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
                 <li><a href="certifications.html" class="nav-link">Certifications</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Me</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section - Clean Professional Style -->
-    <section class="hero clean-hero">
-        <div class="animated-background">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
-        </div>
-        
+    <!-- Hero Section - Clean Professional -->
+    <section class="hero">
         <div class="container">
-            <div class="hero-content modern-layout">
-                <!-- Left Side - Profile Image -->
-                <div class="hero-image modern-image">
-                    <div class="image-wrapper">
-                        <div class="profile-frame">
-                            <img src="assets/images/profile.jpg" alt="Bhupesh Indurkar" class="profile-photo">
-                            <div class="frame-glow"></div>
-                        </div>
+            <div class="hero-content">
+                <!-- Profile Image -->
+                <div class="hero-image">
+                    <div class="profile-wrapper">
+                        <img src="assets/images/profile.jpg" alt="Bhupesh Indurkar" class="profile-photo">
                     </div>
                 </div>
                 
-                <!-- Right Side - Content -->
-                <div class="hero-text modern-content">
+                <!-- Text Content -->
+                <div class="hero-text">
                     <div class="greeting-badge">
-                        <span>👋 Hello, I'm</span>
+                        <span> Hello, I'm</span>
                     </div>
                     
-                    <h1 class="hero-name modern-title">
-                        <span class="name-text">Bhupesh Indurkar</span>
-                    </h1>
+                    <h1 class="hero-name" id="typedName"></h1>
                     
-                    <h2 class="hero-role modern-subtitle">
-                        <span class="role-text">Full Stack Developer</span>
-                    </h2>
+                    <h2 class="hero-title">Full Stack Developer</h2>
                     
-                    <div class="location-tag">
+                    <div class="hero-location">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Nagpur, Maharashtra, India</span>
                     </div>
                     
-                    <p class="hero-bio modern-description">
+                    <p class="hero-description">
                         Passionate Full Stack Developer specializing in <strong>Java</strong>, <strong>Spring Boot</strong>, 
                         and modern web technologies. I create scalable applications with clean code and innovative 
                         solutions that solve real-world problems.
                     </p>
                     
                     <!-- Stats -->
-                    <div class="quick-stats">
-                        <div class="stat-box">
-                            <span class="stat-value">2+</span>
-                            <span class="stat-name">Years Experience</span>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years Experience</span>
                         </div>
-                        <div class="stat-box">
-                            <span class="stat-value">15+</span>
-                            <span class="stat-name">Projects</span>
+                        <div class="stat-item">
+                            <span class="stat-number">6+</span>
+                            <span class="stat-label">Projects</span>
                         </div>
-                        <div class="stat-box">
-                            <span class="stat-value">5+</span>
-                            <span class="stat-name">Technologies</span>
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Technologies</span>
                         </div>
                     </div>
                     
                     <!-- Action Buttons -->
-                    <div class="action-buttons">
+                    <div class="hero-buttons">
                         <a href="projects.html" class="btn-modern primary">
                             <i class="fas fa-briefcase"></i>
                             <span>View Projects</span>
@@ -129,16 +110,16 @@
                     <div class="social-connect">
                         <span class="social-label">Connect with me:</span>
                         <div class="social-icons">
-                            <a href="https://www.linkedin.com/in/bhupesh-indurkar-64865b321/" target="_blank" class="social-icon linkedin" title="LinkedIn">
+                            <a href="https://www.linkedin.com/in/bhupesh-indurkar-64865b321/" target="_blank" class="social-icon linkedin">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="https://github.com/bhupeshindurkar" target="_blank" class="social-icon github" title="GitHub">
+                            <a href="https://github.com/bhupeshindurkar" target="_blank" class="social-icon github">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="https://www.youtube.com/@bhupeshindurkar159" target="_blank" class="social-icon youtube" title="YouTube">
+                            <a href="https://www.youtube.com/@bhupeshindurkar159" target="_blank" class="social-icon youtube">
                                 <i class="fab fa-youtube"></i>
                             </a>
-                            <a href="https://www.instagram.com/bhupesh_photography143?igsh=MTkza2FpNmloNzd4NA==" target="_blank" class="social-icon instagram" title="Instagram">
+                            <a href="https://www.instagram.com/bhupesh_photography143?igsh=MTkza2FpNmloNzd4NA==" target="_blank" class="social-icon instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </div>
@@ -151,7 +132,7 @@
     <!-- Quick Stats -->
     <section class="stats">
         <div class="container">
-            <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr); max-width: 1200px; margin: 0 auto;">
+            <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); max-width: 900px; margin: 0 auto;">
                 <div class="stat-card glass-card" data-aos="flip-left" data-aos-delay="100">
                     <div class="stat-icon">
                         <i class="fas fa-laptop-code"></i>
@@ -167,13 +148,6 @@
                     <div class="stat-label">Backend Expertise</div>
                 </div>
                 <div class="stat-card glass-card" data-aos="flip-left" data-aos-delay="300">
-                    <div class="stat-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3 class="stat-number" data-count="88" data-suffix="%">88%</h3>
-                    <div class="stat-label">UI/UX Design</div>
-                </div>
-                <div class="stat-card glass-card" data-aos="flip-left" data-aos-delay="400">
                     <div class="stat-icon">
                         <i class="fas fa-database"></i>
                     </div>
@@ -240,7 +214,7 @@
                             for context understanding, sentiment analysis, and personalized responses.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-badge java">Java</span>
+                            <span class="tech-badge java">Fullstack</span>
                             <span class="tech-badge spring">Spring Boot</span>
                             <span class="tech-badge ai">AI/ML</span>
                         </div>
@@ -299,8 +273,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-text">
-                    <p>&copy; 2024 Bhupesh Indurkar. All rights reserved.</p>
-                    <p class="created-by">Created by BHUPESH</p>
+                    <p>&copy; 2025 Bhupesh Indurkar. All rights reserved.</p>
+                    <p class="created-by">Developed by Bhupesh Indurkar - Full Stack Developer</p>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/bhupesh-indurkar-64865b321/" target="_blank" class="social-link">
@@ -333,8 +307,26 @@
             offset: 100
         });
 
-        // Modern Portfolio - Clean and Professional
-        console.log('Portfolio Loaded Successfully');
+        // Professional homepage - clean and simple
+        console.log('Professional Portfolio Loaded Successfully');
+        
+        // Scroll behavior for navbar - hide on scroll down, show on scroll up
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop === 0) {
+                // At the very top - show navbar
+                navbar.classList.remove('hidden');
+            } else if (scrollTop > 50) {
+                // Scrolled down - hide navbar
+                navbar.classList.add('hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
         
         // Add smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -349,32 +341,28 @@
                 }
             });
         });
-
-        // Mobile Menu Functionality
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
+    </script>
+    
+    <!-- Typewriter Effect for Name -->
+    <script>
+        // Typewriter effect for name
+        const nameText = "Bhupesh Indurkar";
+        const typedNameElement = document.getElementById('typedName');
         
-        if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileMenuBtn.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
+        if (typedNameElement) {
+            let charIndex = 0;
             
-            // Close menu when clicking on a link
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenuBtn.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!mobileMenuBtn.contains(event.target) && !navMenu.contains(event.target)) {
-                    mobileMenuBtn.classList.remove('active');
-                    navMenu.classList.remove('active');
+            function typeWriter() {
+                if (charIndex < nameText.length) {
+                    typedNameElement.textContent += nameText.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, 120); // 120ms delay between characters
                 }
+            }
+            
+            // Start typewriter after page loads with 300ms delay
+            window.addEventListener('load', () => {
+                setTimeout(typeWriter, 300);
             });
         }
     </script>

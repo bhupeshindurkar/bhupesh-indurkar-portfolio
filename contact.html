@@ -22,14 +22,8 @@
             </div> 
             
             <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
             <!-- Navigation Menu -->
-            <ul class="nav-menu" id="navMenu">
+            <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="skills.html" class="nav-link">Skills</a></li>
@@ -329,8 +323,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-text">
-                    <p>&copy; 2024 Bhupesh Indurkar. All rights reserved.</p>
-                    <p class="created-by">Created by BHUPESH</p>
+                    <p>&copy; 2025 Bhupesh Indurkar. All rights reserved.</p>
+                    <p class="created-by">Developed by Bhupesh Indurkar - Full Stack Developer</p>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/bhupesh-indurkar-64865b321/" target="_blank" class="social-link">
@@ -354,33 +348,23 @@
     <script src="js/animations.js"></script>
     
     <script>
-        // Mobile Menu Functionality
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
+        // Scroll behavior for navbar - hide on scroll down, show on scroll up
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
         
-        if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileMenuBtn.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
-            // Close menu when clicking on a link
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenuBtn.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
+            if (scrollTop === 0) {
+                // At the very top - show navbar
+                navbar.classList.remove('hidden');
+            } else if (scrollTop > 50) {
+                // Scrolled down - hide navbar
+                navbar.classList.add('hidden');
+            }
             
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!mobileMenuBtn.contains(event.target) && !navMenu.contains(event.target)) {
-                    mobileMenuBtn.classList.remove('active');
-                    navMenu.classList.remove('active');
-                }
-            });
-        }
+            lastScrollTop = scrollTop;
+        });
     </script>
 </body>
 </html>
