@@ -1,0 +1,185 @@
+/* Professional Clean Theme - No Coding Theme */
+
+/* Override body background */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%) !important;
+    color: #2c3e50 !important;
+}
+
+/* Clean Professional Background */
+body::before {
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(74, 144, 226, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(123, 104, 238, 0.06) 0%, transparent 50%),
+        linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+}
+
+/* Subtle Grid Pattern */
+body::after {
+    background-image: 
+        linear-gradient(90deg, rgba(74, 144, 226, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(74, 144, 226, 0.03) 1px, transparent 1px) !important;
+    background-size: 60px 60px !important;
+    opacity: 0.4 !important;
+    animation: none !important;
+}
+
+/* Professional Hero Section */
+.hero {
+    background: transparent !important;
+}
+
+.hero::before,
+.hero::after {
+    display: none !important;
+}
+
+/* Clean Animated Background */
+.animated-background {
+    display: none !important;
+}
+
+/* Professional Text Colors */
+.hero-name,
+.modern-title {
+    color: #1a202c !important;
+}
+
+.hero-role,
+.modern-subtitle {
+    color: #4A90E2 !important;
+}
+
+.hero-bio,
+.modern-description {
+    color: #4a5568 !important;
+}
+
+/* Professional Cards */
+.stat-card,
+.project-card,
+.glass-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(74, 144, 226, 0.15) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.stat-card:hover,
+.project-card:hover {
+    box-shadow: 0 8px 30px rgba(74, 144, 226, 0.15) !important;
+}
+
+/* Professional Buttons */
+.btn-modern,
+.btn-glass {
+    background: linear-gradient(135deg, #4A90E2, #357ABD) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3) !important;
+}
+
+.btn-modern.secondary {
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+}
+
+.btn-modern.outline {
+    background: transparent !important;
+    border: 2px solid #4A90E2 !important;
+    color: #4A90E2 !important;
+}
+
+/* Professional Navigation */
+.navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(74, 144, 226, 0.1) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+.nav-links a {
+    color: #2c3e50 !important;
+}
+
+.nav-links a:hover {
+    color: #4A90E2 !important;
+    background: rgba(74, 144, 226, 0.08) !important;
+}
+
+/* Professional Footer */
+.footer {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-top: 1px solid rgba(74, 144, 226, 0.1) !important;
+    color: #2c3e50 !important;
+}
+
+/* Professional Stats */
+.stat-number {
+    color: #4A90E2 !important;
+}
+
+.stat-label {
+    color: #4a5568 !important;
+}
+
+/* Professional Section Titles */
+.section-title {
+    color: #1a202c !important;
+}
+
+/* Clean Profile Image */
+.profile-frame,
+.image-wrapper {
+    border: 4px solid rgba(74, 144, 226, 0.2) !important;
+    box-shadow: 0 10px 40px rgba(74, 144, 226, 0.15) !important;
+}
+
+/* Professional Social Icons */
+.social-icon {
+    background: rgba(74, 144, 226, 0.1) !important;
+    color: #4A90E2 !important;
+}
+
+.social-icon:hover {
+    background: #4A90E2 !important;
+    color: white !important;
+}
+
+/* Remove Dark Overlays */
+.nav-links.active::before {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Professional Mobile Menu */
+@media (max-width: 768px) {
+    .nav-links {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 249, 250, 0.98)) !important;
+    }
+    
+    .nav-links a {
+        color: #2c3e50 !important;
+    }
+    
+    .nav-links a:hover {
+        color: #4A90E2 !important;
+    }
+}
+
+/* Professional Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, #4A90E2, #357ABD) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Clean Location Tag */
+.location-tag {
+    background: rgba(74, 144, 226, 0.1) !important;
+    color: #4A90E2 !important;
+    border: 1px solid rgba(74, 144, 226, 0.2) !important;
+}
+
+/* Professional Greeting Badge */
+.greeting-badge {
+    background: rgba(74, 144, 226, 0.1) !important;
+    color: #4A90E2 !important;
+    border: 1px solid rgba(74, 144, 226, 0.2) !important;
+}
