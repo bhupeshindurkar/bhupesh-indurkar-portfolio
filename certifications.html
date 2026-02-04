@@ -29,14 +29,7 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <span class="gradient-text">BI Indurkar</span>
-            </div> 
-            
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            </div>
             
             <!-- Navigation Menu -->
             <ul class="nav-menu" id="navMenu">
@@ -55,7 +48,7 @@
         <div class="container">
             <div class="hero-content-centered">
                 <h1 class="main-title" data-aos="fade-up">
-                    <span class="trip-rider-text">Certifications & Achievements</span>
+                    <span class="trip-rider-text" id="rotatingText">Certifications & Achievements</span>
                 </h1>
                 <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
                     Showcasing my professional certifications, internships, and academic performance
@@ -290,6 +283,29 @@
                             <i class="fas fa-eye"></i> View
                         </a>
                         <a href="assets/certificates/greenskills-cert.jpg" download="GreenSkills_AI_Certificate_Bhupesh_Indurkar.jpg" class="intern-btn download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SkillCraft Technology -->
+                <div class="internship-card-modern" data-aos="fade-right" data-aos-delay="600">
+                    <div class="internship-header">
+                        <div class="internship-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="internship-badge">2026</div>
+                    </div>
+                    <h3 class="internship-title">Technology Intern</h3>
+                    <p class="internship-company">SkillCraft Technology</p>
+                    <p class="internship-desc">
+                        Hands-on experience in modern web development, software engineering practices, and technical skill enhancement.
+                    </p>
+                    <div class="internship-actions">
+                        <a href="assets/certificates/SkillCrapft.pdf" target="_blank" class="intern-btn view-btn">
+                            <i class="fas fa-eye"></i> View
+                        </a>
+                        <a href="assets/certificates/SkillCrapft.pdf" download="SkillCraft_Technology_Certificate_Bhupesh_Indurkar.pdf" class="intern-btn download-btn">
                             <i class="fas fa-download"></i> Download
                         </a>
                     </div>
@@ -1587,60 +1603,6 @@
 
 
     <script>
-        // Mobile Menu Functions
-        function toggleMobileMenu() {
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            if (navMenu.style.left === '0px') {
-                navMenu.style.left = '-100%';
-                mobileBtn.innerHTML = '☰';
-                mobileBtn.style.background = '#4A90E2';
-            } else {
-                navMenu.style.left = '0px';
-                mobileBtn.innerHTML = '✕';
-                mobileBtn.style.background = '#ff4757';
-            }
-        }
-
-        function closeMenu() {
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            navMenu.style.left = '-100%';
-            mobileBtn.innerHTML = '☰';
-            mobileBtn.style.background = '#4A90E2';
-        }
-
-        // Show mobile menu button on mobile devices
-        function checkMobileView() {
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const hamburger = document.querySelector('.hamburger');
-            
-            if (window.innerWidth <= 768) {
-                mobileBtn.style.display = 'block';
-                if (hamburger) hamburger.style.display = 'none';
-            } else {
-                mobileBtn.style.display = 'none';
-                if (hamburger) hamburger.style.display = 'block';
-                closeMenu(); // Close menu when switching to desktop
-            }
-        }
-
-        // Check on load and resize
-        window.addEventListener('load', checkMobileView);
-        window.addEventListener('resize', checkMobileView);
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const navMenu = document.querySelector('.nav-menu');
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            
-            if (!e.target.closest('.nav-menu') && !e.target.closest('#mobile-menu-btn') && navMenu.style.left === '0px') {
-                closeMenu();
-            }
-        });
-
         // Initialize AOS
         AOS.init({
             duration: 1000,
@@ -1742,32 +1704,80 @@
                 });
             });
         });
+    </script>
+    
+    <!-- Rotating Text Animation -->
+    <script>
+        // Rotating text for hero title
+        const texts = [
+            'Certifications & Achievements',
+            'Professional Growth Journey',
+            'Skills & Credentials',
+            'Learning Milestones',
+            'Academic Excellence'
+        ];
         
-        // Mobile Menu Functionality
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+        const rotatingTextElement = document.getElementById('rotatingText');
         
-        if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileMenuBtn.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
+        function typeText() {
+            const currentText = texts[textIndex];
             
-            // Close menu when clicking on a link
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenuBtn.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
+            if (isDeleting) {
+                // Deleting characters
+                rotatingTextElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                // Typing characters
+                rotatingTextElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
             
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!mobileMenuBtn.contains(event.target) && !navMenu.contains(event.target)) {
-                    mobileMenuBtn.classList.remove('active');
-                    navMenu.classList.remove('active');
+            // When word is complete
+            if (!isDeleting && charIndex === currentText.length) {
+                // Pause at end
+                typingSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // Move to next word
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typingSpeed = 500;
+            }
+            
+            setTimeout(typeText, typingSpeed);
+        }
+        
+        // Start typing animation after page loads
+        window.addEventListener('load', () => {
+            setTimeout(typeText, 1000);
+        });
+    </script>
+    
+    <!-- Mobile Scroll Behavior - Only for Mobile Devices -->
+    <script>
+        // Mobile-only scroll behavior for navbar
+        if (window.innerWidth <= 768) {
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop === 0) {
+                    // At the very top - show navbar
+                    navbar.classList.remove('mobile-hidden');
+                } else if (scrollTop > 50) {
+                    // Scrolled down - hide navbar
+                    navbar.classList.add('mobile-hidden');
                 }
+                
+                lastScrollTop = scrollTop;
             });
         }
     </script>

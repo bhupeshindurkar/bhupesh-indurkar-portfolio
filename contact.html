@@ -55,7 +55,13 @@
                 <div class="contact-form-section animate-fade-up">
                     <div class="form-container glass-panel">
                         <h2 class="form-title gradient-text">Send Me a Message</h2>
-                        <form class="contact-form" id="contactForm">
+                        <form class="contact-form" id="contactForm" action="https://formsubmit.co/bhupeshindurkar6@gmail.com" method="POST">
+                            <!-- FormSubmit Configuration -->
+                            <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_next" value="https://bhupeshindurkar.vercel.app/contact.html?success=true">
+                            
                             <div class="form-group">
                                 <label for="name" class="form-label">Full Name</label>
                                 <input type="text" id="name" name="name" class="glass-input" required>
@@ -188,7 +194,13 @@
                         <h2 class="info-title gradient-text">Quick Feedback</h2>
                         <p class="feedback-subtitle">Share your thoughts or suggestions</p>
                         
-                        <form class="quick-feedback-form" id="quickFeedbackForm">
+                        <form class="quick-feedback-form" id="quickFeedbackForm" action="https://formsubmit.co/bhupeshindurkar6@gmail.com" method="POST">
+                            <!-- FormSubmit Configuration -->
+                            <input type="hidden" name="_subject" value="Portfolio Feedback Received">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_next" value="https://bhupeshindurkar.vercel.app/contact.html?feedback=success">
+                            
                             <div class="form-group">
                                 <label for="feedback-name" class="form-label">
                                     <i class="fas fa-user"></i> Name
@@ -349,23 +361,115 @@
     <script src="js/animations.js"></script>
     
     <script>
-        // Scroll behavior for navbar - hide on scroll down, show on scroll up
-        let lastScrollTop = 0;
-        const navbar = document.querySelector('.navbar');
-        
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        // Check for success message in URL
+        window.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
             
-            if (scrollTop === 0) {
-                // At the very top - show navbar
-                navbar.classList.remove('hidden');
-            } else if (scrollTop > 50) {
-                // Scrolled down - hide navbar
-                navbar.classList.add('hidden');
+            if (urlParams.get('success') === 'true') {
+                showNotification('Message sent successfully! I will get back to you soon.', 'success');
+                // Clean URL
+                window.history.replaceState({}, document.title, window.location.pathname);
             }
             
-            lastScrollTop = scrollTop;
+            if (urlParams.get('feedback') === 'success') {
+                showNotification('Thank you for your feedback! I appreciate it.', 'success');
+                // Clean URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
         });
+        
+        // Notification Function
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: ${type === 'success' ? 'linear-gradient(135deg, #4CAF50, #45a049)' : 'linear-gradient(135deg, #f44336, #d32f2f)'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                z-index: 10000;
+                font-weight: 600;
+                animation: slideInRight 0.5s ease;
+                max-width: 300px;
+            `;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}" style="margin-right: 10px;"></i>
+                ${message}
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.5s ease';
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 500);
+            }, 5000);
+        }
+        
+        // Copy to Clipboard Function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('Email copied to clipboard!', 'success');
+            }).catch(() => {
+                showNotification('Failed to copy email', 'error');
+            });
+        }
+        
+        // Add animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    
+    <!-- Mobile Scroll Behavior - Only for Mobile Devices -->
+    <script>
+        // Mobile-only scroll behavior for navbar
+        if (window.innerWidth <= 768) {
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop === 0) {
+                    // At the very top - show navbar
+                    navbar.classList.remove('mobile-hidden');
+                } else if (scrollTop > 50) {
+                    // Scrolled down - hide navbar
+                    navbar.classList.add('mobile-hidden');
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+        }
     </script>
 </body>
 </html>

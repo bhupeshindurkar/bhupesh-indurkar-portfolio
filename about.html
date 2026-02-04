@@ -337,24 +337,27 @@
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
     
+    <!-- Mobile Scroll Behavior - Only for Mobile Devices -->
     <script>
-        // Scroll behavior for navbar - hide on scroll down, show on scroll up
-        let lastScrollTop = 0;
-        const navbar = document.querySelector('.navbar');
-        
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        // Mobile-only scroll behavior for navbar
+        if (window.innerWidth <= 768) {
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
             
-            if (scrollTop === 0) {
-                // At the very top - show navbar
-                navbar.classList.remove('hidden');
-            } else if (scrollTop > 50) {
-                // Scrolled down - hide navbar
-                navbar.classList.add('hidden');
-            }
-            
-            lastScrollTop = scrollTop;
-        });
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop === 0) {
+                    // At the very top - show navbar
+                    navbar.classList.remove('mobile-hidden');
+                } else if (scrollTop > 50) {
+                    // Scrolled down - hide navbar
+                    navbar.classList.add('mobile-hidden');
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+        }
     </script>
 </body>
 </html>
