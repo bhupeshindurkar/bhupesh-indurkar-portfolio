@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/glassmorphism.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/mobile-responsive.css">
 </head>
 <body>
     <!-- Animated Geometric Background -->
@@ -30,8 +31,15 @@
                 <span class="gradient-text">BI Indurkar</span>
             </div> 
             
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
             <!-- Navigation Menu -->
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="skills.html" class="nav-link">Skills</a></li>
@@ -286,29 +294,6 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- SkillCraft -->
-                <div class="internship-card-modern" data-aos="fade-right" data-aos-delay="600">
-                    <div class="internship-header">
-                        <div class="internship-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <div class="internship-badge">2026</div>
-                    </div>
-                    <h3 class="internship-title">Technology Intern</h3>
-                    <p class="internship-company">SkillCraft Technology</p>
-                    <p class="internship-desc">
-                        Hands-on experience in modern web development, software engineering practices, and technical skill enhancement.
-                    </p>
-                    <div class="internship-actions">
-                        <a href="assets/certificates/SkillCrapft.pdf" target="_blank" class="intern-btn view-btn">
-                            <i class="fas fa-eye"></i> View
-                        </a>
-                        <a href="assets/certificates/SkillCrapft.pdf" download="SkillCraft_Technology_Certificate_Bhupesh_Indurkar.pdf" class="intern-btn download-btn">
-                            <i class="fas fa-download"></i> Download
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -451,8 +436,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-text">
-                    <p>&copy; 2025 Bhupesh Indurkar. All rights reserved.</p>
-                    <p class="created-by">Developed by Bhupesh Indurkar - Full Stack Developer</p>
+                    <p>&copy; 2024 Bhupesh Indurkar. All rights reserved.</p>
+                    <p class="created-by">Created by BHUPESH</p>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/bhupesh-indurkar-64865b321/" target="_blank" class="social-link">
@@ -1417,16 +1402,93 @@
             background: #fff;
         }
 
-        /* Desktop Navigation - Use Global Styles */
-        @media (min-width: 769px) {
+        /* Enhanced Mobile Menu */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex !important;
+            }
+
             .nav-menu {
-                display: flex;
-                list-style: none;
-                gap: 2rem;
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background: linear-gradient(135deg, rgba(10, 14, 39, 0.98), rgba(26, 31, 58, 0.98));
+                backdrop-filter: blur(25px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 3rem;
+                transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 1000;
+                border-top: 3px solid rgba(74, 144, 226, 0.5);
+                box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1.5rem 0;
+                width: 85%;
+                text-align: center;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: slideInMenu 0.5s ease forwards;
+            }
+
+            .nav-menu.active li:nth-child(1) { animation-delay: 0.1s; }
+            .nav-menu.active li:nth-child(2) { animation-delay: 0.2s; }
+            .nav-menu.active li:nth-child(3) { animation-delay: 0.3s; }
+            .nav-menu.active li:nth-child(4) { animation-delay: 0.4s; }
+            .nav-menu.active li:nth-child(5) { animation-delay: 0.5s; }
+            .nav-menu.active li:nth-child(6) { animation-delay: 0.6s; }
+
+            @keyframes slideInMenu {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-link {
+                font-size: 1.3rem;
+                padding: 1.2rem 2.5rem;
+                border-radius: 15px;
+                transition: all 0.3s ease;
+                display: block;
+                background: linear-gradient(135deg, rgba(74, 144, 226, 0.15), rgba(123, 104, 238, 0.15));
+                border: 2px solid rgba(74, 144, 226, 0.3);
+                color: #fff;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+                background: linear-gradient(135deg, rgba(74, 144, 226, 0.4), rgba(123, 104, 238, 0.4));
+                border-color: rgba(74, 144, 226, 0.6);
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 10px 25px rgba(74, 144, 226, 0.3);
+            }
+
+            /* Navbar adjustments */
+            .navbar {
+                padding: 1rem 0;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
             }
         }
-        
-        /* Mobile - Use Global Styles from styles.css */
         @media (max-width: 768px) {
             .main-title {
                 font-size: 2.2rem;
@@ -1525,6 +1587,60 @@
 
 
     <script>
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (navMenu.style.left === '0px') {
+                navMenu.style.left = '-100%';
+                mobileBtn.innerHTML = '☰';
+                mobileBtn.style.background = '#4A90E2';
+            } else {
+                navMenu.style.left = '0px';
+                mobileBtn.innerHTML = '✕';
+                mobileBtn.style.background = '#ff4757';
+            }
+        }
+
+        function closeMenu() {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            navMenu.style.left = '-100%';
+            mobileBtn.innerHTML = '☰';
+            mobileBtn.style.background = '#4A90E2';
+        }
+
+        // Show mobile menu button on mobile devices
+        function checkMobileView() {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (window.innerWidth <= 768) {
+                mobileBtn.style.display = 'block';
+                if (hamburger) hamburger.style.display = 'none';
+            } else {
+                mobileBtn.style.display = 'none';
+                if (hamburger) hamburger.style.display = 'block';
+                closeMenu(); // Close menu when switching to desktop
+            }
+        }
+
+        // Check on load and resize
+        window.addEventListener('load', checkMobileView);
+        window.addEventListener('resize', checkMobileView);
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const navMenu = document.querySelector('.nav-menu');
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            
+            if (!e.target.closest('.nav-menu') && !e.target.closest('#mobile-menu-btn') && navMenu.style.left === '0px') {
+                closeMenu();
+            }
+        });
+
         // Initialize AOS
         AOS.init({
             duration: 1000,
@@ -1625,25 +1741,35 @@
                     showDownloadNotification(certName);
                 });
             });
-            
-            // Scroll behavior for navbar - hide on scroll down, show on scroll up
-            let lastScrollTop = 0;
-            const navbar = document.querySelector('.navbar');
-            
-            window.addEventListener('scroll', function() {
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollTop === 0) {
-                    // At the very top - show navbar
-                    navbar.classList.remove('hidden');
-                } else if (scrollTop > 50) {
-                    // Scrolled down - hide navbar
-                    navbar.classList.add('hidden');
-                }
-                
-                lastScrollTop = scrollTop;
-            });
         });
+        
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenuBtn.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenuBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileMenuBtn.contains(event.target) && !navMenu.contains(event.target)) {
+                    mobileMenuBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        }
     </script>
 </body>
 </html>
