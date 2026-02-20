@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="css/glassmorphism.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/modern.css">
+    <link rel="stylesheet" href="css/hamburger-menu.css">
     <link rel="stylesheet" href="css/rutuja-background.css">
     <link rel="stylesheet" href="css/clean-hero.css">
-    <link rel="stylesheet" href="css/mobile-responsive.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -29,7 +29,14 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <span class="gradient-text">BI Indurkar</span>
-            </div>
+            </div> 
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             
             <!-- Navigation Menu -->
             <ul class="nav-menu" id="navMenu">
@@ -38,7 +45,7 @@
                 <li><a href="skills.html" class="nav-link">Skills</a></li>
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
                 <li><a href="certifications.html" class="nav-link">Certifications</a></li>
-                <li><a href="contact.html" class="nav-link">Contact Me</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -57,7 +64,7 @@
                 <!-- Text Content -->
                 <div class="hero-text">
                     <div class="greeting-badge">
-                        <span> Hello, I'm</span>
+                        <span>👋 Hello, I'm</span>
                     </div>
                     
                     <h1 class="hero-name" id="typedName"></h1>
@@ -78,15 +85,14 @@
                     <!-- Stats -->
                     <div class="hero-stats">
                         <div class="stat-item">
-                            <span class="stat-number">2+</span>
-                            <span class="stat-label">Years Experience</span>
+                        
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">15+</span>
+                            <span class="stat-number">7+</span>
                             <span class="stat-label">Projects</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">5+</span>
+                            <span class="stat-number">3+</span>
                             <span class="stat-label">Technologies</span>
                         </div>
                     </div>
@@ -101,7 +107,7 @@
                             <i class="fas fa-envelope"></i>
                             <span>Contact Me</span>
                         </a>
-                        <a href="assets/Bhupesh Resume Complete.pdf" class="btn-modern outline" download="Bhupesh_Indurkar_Resume.pdf">
+                        <a href="assets/resume.pdf" class="btn-modern outline" download>
                             <i class="fas fa-download"></i>
                             <span>Download CV</span>
                         </a>
@@ -324,27 +330,32 @@
                 }
             });
         });
-    </script>
-    
-    <!-- Mobile Scroll Behavior - Only for Mobile Devices -->
-    <script>
-        // Mobile-only scroll behavior for navbar
-        if (window.innerWidth <= 768) {
-            let lastScrollTop = 0;
-            const navbar = document.querySelector('.navbar');
+
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenuBtn.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
             
-            window.addEventListener('scroll', function() {
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollTop === 0) {
-                    // At the very top - show navbar
-                    navbar.classList.remove('mobile-hidden');
-                } else if (scrollTop > 50) {
-                    // Scrolled down - hide navbar
-                    navbar.classList.add('mobile-hidden');
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenuBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileMenuBtn.contains(event.target) && !navMenu.contains(event.target)) {
+                    mobileMenuBtn.classList.remove('active');
+                    navMenu.classList.remove('active');
                 }
-                
-                lastScrollTop = scrollTop;
             });
         }
     </script>
