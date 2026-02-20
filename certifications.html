@@ -54,7 +54,7 @@
         <div class="container">
             <div class="hero-content-centered">
                 <h1 class="main-title" data-aos="fade-up">
-                    <span class="trip-rider-text">Certifications & Achievements</span>
+                    <span class="trip-rider-text" id="rotatingText">Certifications & Achievements</span>
                 </h1>
                 <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
                     Showcasing my professional certifications, internships, and academic performance
@@ -1767,6 +1767,82 @@
                     mobileMenuBtn.classList.remove('active');
                     navMenu.classList.remove('active');
                 }
+            });
+        }
+    </script>
+    
+    <!-- Rotating Text Animation -->
+    <script>
+        // Rotating text for hero title
+        const texts = [
+            'Certifications & Achievements',
+            'Professional Growth Journey',
+            'Skills & Credentials',
+            'Learning Milestones',
+            'Academic Excellence'
+        ];
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+        const rotatingTextElement = document.getElementById('rotatingText');
+        
+        function typeText() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                // Deleting characters
+                rotatingTextElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                // Typing characters
+                rotatingTextElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+            
+            // When word is complete
+            if (!isDeleting && charIndex === currentText.length) {
+                // Pause at end
+                typingSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // Move to next word
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typingSpeed = 500;
+            }
+            
+            setTimeout(typeText, typingSpeed);
+        }
+        
+        // Start typing animation after page loads
+        window.addEventListener('load', () => {
+            setTimeout(typeText, 1000);
+        });
+    </script>
+    
+    <!-- Mobile Scroll Behavior - Only for Mobile Devices -->
+    <script>
+        // Mobile-only scroll behavior for navbar
+        if (window.innerWidth <= 768) {
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop === 0) {
+                    // At the very top - show navbar
+                    navbar.classList.remove('mobile-hidden');
+                } else if (scrollTop > 50) {
+                    // Scrolled down - hide navbar
+                    navbar.classList.add('mobile-hidden');
+                }
+                
+                lastScrollTop = scrollTop;
             });
         }
     </script>
