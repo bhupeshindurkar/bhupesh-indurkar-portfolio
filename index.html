@@ -31,13 +31,6 @@
                 <span class="gradient-text">BI Indurkar</span>
             </div> 
             
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
             <!-- Navigation Menu -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
@@ -380,6 +373,29 @@
             // Start typewriter after page loads with 300ms delay
             window.addEventListener('load', () => {
                 setTimeout(typeWriter, 300);
+            });
+        }
+    </script>
+    
+    <!-- Mobile Scroll Behavior - Only for Mobile Devices -->
+    <script>
+        // Mobile-only scroll behavior for navbar
+        if (window.innerWidth <= 768) {
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop === 0) {
+                    // At the very top - show navbar
+                    navbar.classList.remove('mobile-hidden');
+                } else if (scrollTop > 50) {
+                    // Scrolled down - hide navbar
+                    navbar.classList.add('mobile-hidden');
+                }
+                
+                lastScrollTop = scrollTop;
             });
         }
     </script>
