@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="css/glassmorphism.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/modern.css">
+    <link rel="stylesheet" href="css/hamburger-menu.css">
     <link rel="stylesheet" href="css/rutuja-background.css">
     <link rel="stylesheet" href="css/clean-hero.css">
-    <link rel="stylesheet" href="css/mobile-responsive.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -38,7 +38,7 @@
                 <li><a href="skills.html" class="nav-link">Skills</a></li>
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
                 <li><a href="certifications.html" class="nav-link">Certifications</a></li>
-                <li><a href="contact me .html" class="nav-link">Contact Me</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -57,7 +57,7 @@
                 <!-- Text Content -->
                 <div class="hero-text">
                     <div class="greeting-badge">
-                        <span> Hello, I'm</span>
+                        <span>👋 Hello, I'm</span>
                     </div>
                     
                     <h1 class="hero-name" id="typedName"></h1>
@@ -78,15 +78,15 @@
                     <!-- Stats -->
                     <div class="hero-stats">
                         <div class="stat-item">
-                            <span class="stat-number">2+</span>
-                            <span class="stat-label">Years Experience</span>
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">6+</span>
+                            <span class="stat-label">Internships</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">15+</span>
-                            <span class="stat-label">Projects</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">5+</span>
                             <span class="stat-label">Technologies</span>
                         </div>
                     </div>
@@ -101,9 +101,9 @@
                             <i class="fas fa-envelope"></i>
                             <span>Contact Me</span>
                         </a>
-                        <a href="assets/Bhupesh Resume (1).pdf" class="btn-modern outline" download="Bhupesh_Indurkar_Resume.pdf">
+                        <a href="assets/Bhupesh%20Resume%20Complete.pdf" class="btn-modern outline" download="Bhupesh_Indurkar_Resume.pdf">
                             <i class="fas fa-download"></i>
-                            <span>Download CV</span>
+                            <span>Download Resume</span>
                         </a>
                     </div>
                     
@@ -164,34 +164,38 @@
         <div class="container">
             <h2 class="section-title gradient-text">Featured Projects</h2>
             <div class="projects-grid">
-                <!-- Project 1: Language Translator -->
+                <!-- Project 1: CareerHub Portal (Featured Deployed Project) -->
                 <div class="project-card glass-card tilt-card">
                     <div class="project-image">
-                        <img src="assets/images/project-thumbs/translator.png" alt="Language Translator">
+                        <img src="assets/images/project-thumbs/careerhub.png" alt="CareerHub Job Portal">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="https://github.com/bhupeshindurkar/language-translator" target="_blank" class="project-link" title="View Code"><i class="fas fa-code"></i></a>
-                                <a href="https://github.com/bhupeshindurkar/language-translator" target="_blank" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://careerhub-portal-job.vercel.app" target="_blank" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://github.com/bhupeshindurkar" target="_blank" class="project-link" title="View Code"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Language Translator</h3>
+                        <div class="featured-badge" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 10px;">
+                            <i class="fas fa-star"></i> LIVE & DEPLOYED
+                        </div>
+                        <h3 class="project-title">CareerHub Job Portal</h3>
                         <p class="project-description">
-                            Advanced translation application with multiple language support using Google Translate API. 
-                            Features real-time translation, language detection, and responsive design for seamless user experience.
+                            Full-stack job portal platform connecting job seekers with employers. Features include job listings, 
+                            application tracking, user authentication, and admin dashboard. Built with modern MERN stack and deployed on Vercel.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-badge python">Python</span>
-                            <span class="tech-badge flask">Flask</span>
-                            <span class="tech-badge api">API</span>
+                            <span class="tech-badge react">React</span>
+                            <span class="tech-badge node">Node.js</span>
+                            <span class="tech-badge mongodb">MongoDB</span>
+                            <span class="tech-badge express">Express</span>
                         </div>
                         <div class="project-buttons">
-                            <a href="https://github.com/bhupeshindurkar/language-translator" target="_blank" class="btn-project code">
-                                <i class="fas fa-code"></i> Code
+                            <a href="https://careerhub-portal-job.vercel.app" target="_blank" class="btn-project demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
-                            <a href="https://github.com/bhupeshindurkar/language-translator" target="_blank" class="btn-project demo">
-                                <i class="fas fa-external-link-alt"></i> Demo
+                            <a href="https://github.com/bhupeshindurkar" target="_blank" class="btn-project code">
+                                <i class="fab fa-github"></i> GitHub
                             </a>
                         </div>
                     </div>
@@ -324,29 +328,6 @@
                 }
             });
         });
-    </script>
-    
-    <!-- Mobile Scroll Behavior - Only for Mobile Devices -->
-    <script>
-        // Mobile-only scroll behavior for navbar
-        if (window.innerWidth <= 768) {
-            let lastScrollTop = 0;
-            const navbar = document.querySelector('.navbar');
-            
-            window.addEventListener('scroll', function() {
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollTop === 0) {
-                    // At the very top - show navbar
-                    navbar.classList.remove('mobile-hidden');
-                } else if (scrollTop > 50) {
-                    // Scrolled down - hide navbar
-                    navbar.classList.add('mobile-hidden');
-                }
-                
-                lastScrollTop = scrollTop;
-            });
-        }
     </script>
     
     <!-- Typewriter Effect for Name -->
