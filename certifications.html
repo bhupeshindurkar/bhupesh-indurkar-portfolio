@@ -54,7 +54,7 @@
         <div class="container">
             <div class="hero-content-centered">
                 <h1 class="main-title" data-aos="fade-up">
-                    <span class="trip-rider-text">Certifications & Achievements</span>
+                    <span id="rotating-cert-title">Certifications & Achievements</span>
                 </h1>
                 <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
                     Showcasing my professional certifications, internships, and academic performance
@@ -1769,6 +1769,32 @@
                 }
             });
         }
+    </script>
+    <script>
+        // Rotating text animation for certifications title
+        const rotatingTexts = [
+            "Certifications & Achievements",
+            "Professional Growth Journey",
+            "Skills & Credentials",
+            "Learning Milestones",
+            "Academic Excellence"
+        ];
+        let textIndex = 0, charIndex = 0, isDeleting = false;
+        const el = document.getElementById('rotating-cert-title');
+        function typeEffect() {
+            const current = rotatingTexts[textIndex];
+            el.textContent = isDeleting ? current.substring(0, charIndex--) : current.substring(0, charIndex++);
+            if (!isDeleting && charIndex === current.length + 1) {
+                setTimeout(() => { isDeleting = true; typeEffect(); }, 2000);
+                return;
+            }
+            if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % rotatingTexts.length;
+            }
+            setTimeout(typeEffect, isDeleting ? 50 : 100);
+        }
+        typeEffect();
     </script>
 </body>
 </html>
