@@ -85,14 +85,15 @@
                     <!-- Stats -->
                     <div class="hero-stats">
                         <div class="stat-item">
-                        
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Projects Completed</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">7+</span>
-                            <span class="stat-label">Projects</span>
+                            <span class="stat-number">6+</span>
+                            <span class="stat-label">Internships</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">3+</span>
+                            <span class="stat-number">15+</span>
                             <span class="stat-label">Technologies</span>
                         </div>
                     </div>
@@ -107,9 +108,9 @@
                             <i class="fas fa-envelope"></i>
                             <span>Contact Me</span>
                         </a>
-                        <a href="assets/resume.pdf" class="btn-modern outline" download>
+                        <a href="assets/Bhupesh%20Resume%20Complete.pdf" class="btn-modern outline" download="Bhupesh_Indurkar_Resume.pdf">
                             <i class="fas fa-download"></i>
-                            <span>Download CV</span>
+                            <span>Download Resume</span>
                         </a>
                     </div>
                     
@@ -404,6 +405,69 @@
                 setTimeout(typeWriter, 300);
             });
         }
+    </script>
+    <script>
+        // Splash Screen - Show only on refresh, not on navigation
+        window.addEventListener('load', function() {
+            // Check if coming from navigation (performance.navigation.type === 1 means reload/refresh)
+            const isRefresh = performance.navigation.type === 1 || performance.getEntriesByType('navigation')[0]?.type === 'reload';
+            
+            if (isRefresh || !sessionStorage.getItem('visited')) {
+                // Hide main content
+                document.body.style.overflow = 'hidden';
+                
+                // Create splash screen
+                const splash = document.createElement('div');
+                splash.id = 'splashScreen';
+                splash.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:#0a0e27;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;';
+                splash.innerHTML = `
+                    <div style="text-align:center;animation:fadeInUp 0.8s ease;">
+                        <div style="width:120px;height:120px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 40px;box-shadow:0 20px 60px rgba(102,126,234,0.4);animation:pulse 2s ease infinite;">
+                            <span style="font-size:60px;">👋</span>
+                        </div>
+                        <h1 style="color:#fff;font-size:42px;font-weight:700;margin-bottom:15px;letter-spacing:-0.5px;">Welcome to Bhupesh Portfolio</h1>
+                        <p style="color:rgba(255,255,255,0.7);font-size:18px;margin-bottom:50px;font-weight:300;">Full Stack Developer | Problem Solver | Tech Enthusiast</p>
+                        <div style="display:flex;gap:8px;justify-content:center;">
+                            <div style="width:12px;height:12px;background:#667eea;border-radius:50%;animation:bounce 1.4s ease infinite;"></div>
+                            <div style="width:12px;height:12px;background:#667eea;border-radius:50%;animation:bounce 1.4s ease infinite 0.2s;"></div>
+                            <div style="width:12px;height:12px;background:#667eea;border-radius:50%;animation:bounce 1.4s ease infinite 0.4s;"></div>
+                        </div>
+                    </div>
+                `;
+                
+                // Add animations
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes fadeInUp {
+                        from { opacity:0; transform:translateY(30px); }
+                        to { opacity:1; transform:translateY(0); }
+                    }
+                    @keyframes pulse {
+                        0%, 100% { transform:scale(1); }
+                        50% { transform:scale(1.05); }
+                    }
+                    @keyframes bounce {
+                        0%, 80%, 100% { transform:translateY(0); }
+                        40% { transform:translateY(-15px); }
+                    }
+                `;
+                document.head.appendChild(style);
+                document.body.appendChild(splash);
+                
+                // Mark as visited
+                sessionStorage.setItem('visited', 'true');
+                
+                // Remove splash after 3 seconds
+                setTimeout(function() {
+                    splash.style.transition = 'opacity 0.5s ease';
+                    splash.style.opacity = '0';
+                    setTimeout(function() {
+                        splash.remove();
+                        document.body.style.overflow = '';
+                    }, 500);
+                }, 3000);
+            }
+        });
     </script>
 </body>
 </html>
