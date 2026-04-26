@@ -9,13 +9,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/glassmorphism.css">
     <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/rutuja-background.css">
+    <style>
+        body {
+            zoom: 85%;
+        }
+        .geometric-bg {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
+    <!-- Animated Geometric Background -->
+    <div class="geometric-bg">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar glass-nav">
         <div class="nav-container">
@@ -282,6 +296,29 @@
                             <i class="fas fa-eye"></i> View
                         </a>
                         <a href="assets/certificates/greenskills-cert.jpg" download="GreenSkills_AI_Certificate_Bhupesh_Indurkar.jpg" class="intern-btn download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SkillCraft Technology -->
+                <div class="internship-card-modern" data-aos="fade-right" data-aos-delay="600">
+                    <div class="internship-header">
+                        <div class="internship-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="internship-badge">2026</div>
+                    </div>
+                    <h3 class="internship-title">Software Development Intern</h3>
+                    <p class="internship-company">SkillCraft Technology</p>
+                    <p class="internship-desc">
+                        Advanced software development training. Modern frameworks, best practices, and industry-standard tools.
+                    </p>
+                    <div class="internship-actions">
+                        <a href="assets/certificates/SkillCrapft.pdf" target="_blank" class="intern-btn view-btn">
+                            <i class="fas fa-eye"></i> View
+                        </a>
+                        <a href="assets/certificates/SkillCrapft.pdf" download="SkillCraft_Certificate_Bhupesh_Indurkar.pdf" class="intern-btn download-btn">
                             <i class="fas fa-download"></i> Download
                         </a>
                     </div>
@@ -1763,6 +1800,9 @@
             });
         }
     </script>
+</body>
+</html>
+
     <script>
         // Rotating text animation for certifications title
         const rotatingTexts = [
@@ -1774,20 +1814,23 @@
         ];
         let textIndex = 0, charIndex = 0, isDeleting = false;
         const el = document.getElementById('rotating-cert-title');
+        
         function typeEffect() {
             const current = rotatingTexts[textIndex];
             el.textContent = isDeleting ? current.substring(0, charIndex--) : current.substring(0, charIndex++);
+            
             if (!isDeleting && charIndex === current.length + 1) {
                 setTimeout(() => { isDeleting = true; typeEffect(); }, 2000);
                 return;
             }
+            
             if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 textIndex = (textIndex + 1) % rotatingTexts.length;
             }
+            
             setTimeout(typeEffect, isDeleting ? 50 : 100);
         }
+        
         typeEffect();
     </script>
-</body>
-</html>
